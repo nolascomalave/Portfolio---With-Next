@@ -45,12 +45,12 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning className={`${inter.className} font-sans`}>
-      <body className='min-h-screen flex flex-col'>
+      <body className='bg-light dark:bg-dark text-light-text dark:text-dark-text min-h-screen flex flex-col'>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <ThemeProvider
             attribute="class"
             defaultTheme="dark"          // empieza en dark como tu ejemplo
-            enableSystem                 // respeta preferencia del sistema
+            enableSystem={false}                 // respeta preferencia del sistema
             disableTransitionOnChange    // evita animación rara al cambiar
           >
             <Navbar />

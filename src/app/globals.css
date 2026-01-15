@@ -1,25 +1,32 @@
-/* @import "@mui/material/styles"; */
-
-/* @tailwind base;
-@tailwind components;
-@tailwind utilities; */
-
+@custom-variant dark (&:where(.dark, .dark *));
 @import "tailwindcss";
 
 :root {
   /* Colores Background */
-  --bg-dark: #1D1C27;
-  --bg-light: #F0F0F2;
-  --bg-dark-purple: #9368F9;
-  --bg-light-purple: #E769F7;
-  --bg-neon-green: #40CF89;
+  --dark-color: #1D1C27;
+  --light-color: #F0F0F2;
+  --dark-purple-color: #9368F9;
+  --light-purple-color: #E769F7;
+  --neon-green-color: #40CF89;
 
   /* Colores de texto */
-  --color-light: #1f2937;
-  --color-dark: #e5e7eb;
-  --color-dark-purple: #9368F9;
-  --color-light-purple: #E769F7;
-  --color-neon-green: #40CF89;
+  /* --dark-color: #e5e7eb;
+  --light-color: #1f2937; */
+  --dark-color: #1D1C27;
+  --light-color: #F0F0F2;
+  --dark-purple-color: #9368F9;
+  --light-purple-color: #E769F7;
+  --neon-green-color: #40CF89;
+}
+
+@theme {
+  --color-dark: var(--dark-color);
+  --color-light: var(--light-color);
+  --color-light-text: var(--dark-color);
+  --color-dark-text: var(--dark-light);
+  --color-dark-purple: var(--dark-purple-color);
+  --color-light-purple: var(--light-purple-color);
+  --color-neon-green: var(--neon-green-color);
 }
 
 body {

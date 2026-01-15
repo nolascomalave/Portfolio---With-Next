@@ -35,7 +35,7 @@ export default function Navbar() {
   const activeLink = navLinks.find(link => currentPath === link.key) || navLinks[0];
 
   return (
-    <nav className="sticky top-0 left-0 right-0 z-50 bg-background-light backdrop-blur-md transition-colors flex gap-[0.125rem] text-inherit">
+    <nav className="sticky top-0 left-0 right-0 z-50 backdrop-blur-md transition-colors flex gap-[0.125rem] text-inherit">
         <div className='flex p-[0.5rem] max-w-7xl w-full m-auto'>
             <div className="flex items-center shrink-0">
                 <Link href={`/${locale}/`}>
