@@ -1,0 +1,22 @@
+<svg width="240" height="240" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="gradM" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="20%" stop-color="#40CF89" /> <!-- verde oscuro -->
+            <!-- <stop offset="50%" stop-color="#CD68EE" /> --> <!-- tu color principal -->
+            <stop offset="80%" stop-color="#E769F7" /> <!-- morado -->
+        </linearGradient>
+
+        <linearGradient id="gradN" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#9368F9" /> <!-- verde oscuro -->
+            <!-- <stop offset="50%" stop-color="#CD68EE" /> --> <!-- tu color principal -->
+            <stop offset="80%" stop-color="#E769F7" /> <!-- morado -->
+        </linearGradient>
+    </defs>
+    <!-- <path d="M60 180 L60 60 L120 120 L180 60 L180 180" fill="none" stroke="#40CF89" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M60 180 L60 60 L60 60 L60 60" fill="none" stroke="#40CF89" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M60 60 L60 60 L120 120 L180 180" fill="none" stroke="url(#gradN1)" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/> -->
+
+    <path d="M27.5 210 L27.5 30 L120 120 L210 30 L210 210" fill="none" stroke="url(#gradM)" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M27.5 210 L27.5 30 L27.5 30 L27.5 60" fill="none" stroke="#9368F9" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M27.5 210 L27.5 30 L120 120 L210 210" fill="none" stroke="url(#gradN)" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

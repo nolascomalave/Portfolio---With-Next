@@ -1,29 +1,28 @@
-@tailwind base;
+/* @import "@mui/material/styles"; */
+
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
+
+@import "tailwindcss";
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-rgb: 255, 255, 255;
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  /* Colores Background */
+  --bg-dark: #1D1C27;
+  --bg-light: #F0F0F2;
+  --bg-dark-purple: #9368F9;
+  --bg-light-purple: #E769F7;
+  --bg-neon-green: #40CF89;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-rgb: 0, 0, 0;
-  }
+  /* Colores de texto */
+  --color-light: #1f2937;
+  --color-dark: #e5e7eb;
+  --color-dark-purple: #9368F9;
+  --color-light-purple: #E769F7;
+  --color-neon-green: #40CF89;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-rgb));
+  margin: 0;
+  box-sizing: border-box;
 }

@@ -1,0 +1,26 @@
+{
+  "common": {
+    "theme-mode": "Activar modo {theme}",
+    "theme": {
+      "light": "Claro",
+      "dark": "Oscuro"
+    }
+  },
+  "layout": {
+    "language": "Idioma",
+    "select-language": "Seleccionar idioma",
+    "sections-list": {
+      "home": "Inicio",
+      "about": "Sobre Mí",
+      "skills": "Habilidades",
+      "projects": "Proyectos",
+      "contact": "Contacto"
+    },
+    "sections_content": {
+      "home": {
+        "greeting": "¡Hola, Soy {name}!",
+        "role": "Desarrollador Web"
+      }
+    }
+  }
+}
