@@ -19,7 +19,24 @@
     "sections_content": {
       "home": {
         "greeting": "Hi, I'm {name}!",
-        "role": "Web Developer"
+        "role": "Developer",
+        "subrole": "Web",
+        "subrole1": "Backend",
+        "subrole2": "Frontend",
+        "role2": "Backend Developer",
+        "role3": "Frontend Developer",
+        "description": "Self-taught Full-Stack software developer from Venezuela, passionate about solving problems through software, mainly focused on Backend development."
+      },
+      "about": {
+        "title": "About",
+        "description": {
+          "p1": "Web developer passionate about creating functional, fast, and user-centered digital solutions. I am currently part of the OCAM Group team, where I participate in the development and maintenance of web applications that optimize processes and generate real value for the business.",
+          "p2": "With a background from the University Institute of Industrial Administration Technology, I combine solid technical knowledge with a practical approach to deliver high-quality projects in dynamic environments. I specialize in front-end and back-end development, working with modern technologies to build intuitive interfaces and robust systems.",
+          "p3": "I am motivated by solving real-world problems through code, continuous learning, and collaborating in multidisciplinary teams. I am always looking for opportunities to contribute to innovative projects, whether by improving the user experience, optimizing performance, or implementing new functionalities."
+        }
+      },
+      "skills": {
+        "title": "Arsenal Tech"
       }
     }
   }

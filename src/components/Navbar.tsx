@@ -52,9 +52,6 @@ export default function Navbar() {
                         }}
                     />
                 </Link>
-                {/* <Link href={`/${locale}/`} className="text-xl font-bold">
-                    MyPortfolio
-                </Link> */}
             </div>
 
             <ul className="grow flex list-none text-red items-center justify-center gap-0.5">
@@ -70,7 +67,7 @@ export default function Navbar() {
                 ))}
             </ul>
 
-            <div className='flex items-center gap-[0.125rem] shrink-0'>
+            <div className='flex items-center gap-2 shrink-0'>
                 <ThemeToggle />
                 <LanguageSwitcher/>
             </div>

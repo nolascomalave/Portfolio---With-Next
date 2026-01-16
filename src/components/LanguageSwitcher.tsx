@@ -1,25 +1,20 @@
 import React, { useState, useTransition } from 'react';
-import { Button, Menu, MenuItem, Box, Tooltip } from '@mui/material';
+// import { Button, Menu, MenuItem } from '@mui/material';
 import LanguageIcon from '@mui/icons-material/Language';
 import { Locales, LocalesType } from '../i18n/routing';
 import { useLocale, useTranslations } from 'next-intl';
 import { useRouter, usePathname } from 'next/navigation';
+import { DropdownMenu, DropdownMenuLabel, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuSeparator } from '@/components/ui/dropdown-menu';
+import { Button } from '@/components/ui/button';
+// import { Button } from '@mui/material';
 
 const LanguageSwitcher: React.FC = () => {
-    const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
+    const triggerReff = React.useRef<HTMLButtonElement>(null);
     const router = useRouter();
     const pathname = usePathname();
     const currentLocale = useLocale();
     const __ = useTranslations("layout");
     const [isPending, startTransition] = useTransition();
-
-    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-        setAnchorEl(event.currentTarget);
-    };
-
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
 
     const changeLanguage = (lang: LocalesType) => {
         if (lang === currentLocale) return;
@@ -34,40 +29,36 @@ const LanguageSwitcher: React.FC = () => {
     };
 
     return (
-        <Box>
-            <Tooltip title={__("select-language")} arrow>
-                <Button
-                    color="inherit"
-                    startIcon={<LanguageIcon />}
-                    onClick={handleClick}
-                    aria-controls="language-menu"
-                    aria-haspopup="true"
-                >
-                    {currentLocale.toUpperCase()}
-                </Button>
-            </Tooltip>
-            <Menu
-                id="language-menu"
-                anchorEl={anchorEl}
-                open={Boolean(anchorEl)}
-                onClose={handleClose}
-            >
-                {currentLocale && (() => {
-                    const components: React.ReactNode[] = [];
-                    for(const locale in Locales) {
-                        if(locale !== currentLocale) {
-                            components.push(
-                                <MenuItem key={locale} onClick={() => changeLanguage(locale as LocalesType)}>
-                                    {Locales[locale as keyof (typeof Locales)]} ({locale.toUpperCase()})
-                                </MenuItem>
-                            );
+        <div>
+            <DropdownMenu>
+                <DropdownMenuTrigger asChild ref={triggerReff}>
+                    <Button className="bg-transparent cursor-pointer hover:bg-transparent text-inherit" onClick={e => triggerReff.current?.click()}>
+                        <LanguageIcon className="h-5 w-5" />
+                        {currentLocale.toUpperCase()}
+                    </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="start">
+                    <DropdownMenuLabel>{__("select-language")}</DropdownMenuLabel>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuGroup>
+                    {currentLocale && (() => {
+                        const components: React.ReactNode[] = [];
+                        for(const locale in Locales) {
+                            if(locale !== currentLocale) {
+                                components.push(
+                                    <DropdownMenuItem onSelect={() => changeLanguage(locale as LocalesType)}>
+                                        {Locales[locale as keyof (typeof Locales)]} ({locale.toUpperCase()})
+                                    </DropdownMenuItem>
+                                );
+                            }
                         }
-                    }
 
-                    return components;
-                })()}
-            </Menu>
-        </Box>
+                        return components;
+                    })()}
+                    </DropdownMenuGroup>
+                </DropdownMenuContent>
+            </DropdownMenu>
+        </div>
     );
 };
 

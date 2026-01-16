@@ -1,8 +1,11 @@
 import { Chip, Tooltip } from "@mui/material";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import { MailOutline, GitHub, LinkedIn } from '@mui/icons-material';
 import { JSX } from "@emotion/react/jsx-runtime";
+import { TypingAnimation } from "@/components/ui/typing-animation";
+import { BlurFade } from "@/components/ui/blur-fade"
+import { AuroraText } from "../ui/aurora-text";
 
 export const contactLinks: {label: string, Icon: JSX.Element, href: string, target?: string}[] = [
     {label: "GitHub", Icon: <GitHub color="inherit" />, href: "https://github.com/nolascomalave", target: "_blank"},
@@ -11,9 +14,14 @@ export const contactLinks: {label: string, Icon: JSX.Element, href: string, targ
 ]
 
 export default function Hero() {
-    const __ = useTranslations('layout.sections_content.home');
+    const __ = useTranslations('layout.sections_content.home'),
+        locale = useLocale(),
+        isLocaleES = locale === "es",
+        greetingTypingDuration = 100,
+        greetingText = __("greeting", {name: "Nolasco Malavé"}),
+        greetingDuration = greetingText.length * greetingTypingDuration;
 
-    return (<section className="m-auto py-8 mt-8 px-2 max-w-7xl">
+    return (<section className="m-auto py-8 mt-14 px-4 max-w-7xl">
         <Image
             width={0}
             height={0}
@@ -25,29 +33,28 @@ export default function Hero() {
             }}
         />
 
-        <h1 className="text-4xl font-bold mt-4 text-center">{__("greeting", {name: "Nolasco Malavé"})}</h1>
-        <h3 className="text-2xl text-center text-dark-purple">{__("role")}</h3>
-        <div className="flex gap-2 justify-center mt-6">
+        <div className="flex gap-2 justify-center mt-4">
             {contactLinks.map(({label, Icon, href, target}) => (
                 <a href={href} target={target} className="hover:scale-105 duration-150" key={label}>
                     <Chip icon={Icon} label={label} variant="outlined" style={{color: "inherit"}} />
                 </a>
             ))}
-            {/* <Tooltip title="GitHub" arrow>
-                <a href="https://github.com/nolascomalave" target="_blank">
-                    <Chip icon={<GitHub color="inherit" />} label="GitHub" variant="outlined" style={{color: "inherit"}} />
-                </a>
-            </Tooltip>
-            <Tooltip title="LinkedIn" arrow>
-                <a href="https://www.linkedin.com/in/nolasco-rafael-malave-castro" target="_blank">
-                    <Chip icon={<LinkedIn color="inherit" />} label="LinkedIn" variant="outlined" style={{color: "inherit"}} />
-                </a>
-            </Tooltip>
-            <Tooltip title="Email" arrow>
-                <a href="mailto:nolascomalave@hotmail.com">
-                    <Chip icon={<MailOutline color="inherit" />} label="Email" variant="outlined" style={{color: "inherit"}} />
-                </a>
-            </Tooltip> */}
         </div>
+
+        <h1 className="text-5xl font-bold mt-8 text-center">
+            {/* <AuroraText speed={2}> */}
+                <TypingAnimation duration={greetingTypingDuration}>{greetingText}</TypingAnimation>
+            {/* </AuroraText> */}
+        </h1>
+        <h3 className="text-3xl m-auto flex items-center gap-2 justify-center text-dark-purple"/*  style={{justifyContent: isLocaleES ? "start" : "end"}} */>
+            {/* {isLocaleES ? (<span className="text-gray-300">{__("role")}</span>) : null} <WordRotate className="text-dark-purple" words={[__("subrole"), __("subrole1"), __("subrole2")]}/> {isLocaleES ? null : (<span className="text-gray-300">{__("role")}</span>)} */}
+            {/* <TextAnimate animation="blurInUp" by="character" delay={greetingDuration / 1000} duration={0.7}>{`${(isLocaleES ? __("role").concat(" ") : "")}${__("subrole")}${(!isLocaleES ? (" ").concat(__("role")) : "")}`}</TextAnimate> */}
+            <BlurFade delay={((greetingDuration / 1000))}>
+                {`${(isLocaleES ? __("role").concat(" ") : "")}${__("subrole")}${(!isLocaleES ? (" ").concat(__("role")) : "")}`}
+            </BlurFade>
+        </h3>
+        <BlurFade delay={((greetingDuration / 1000))}>
+            <p className={`${/* styles["fade-in-once"] */ ""} max-w-3xl text-2xl m-auto mt-8 mb-8 text-gray-400 indent-6 text-blur-md`} /* style={{animationDelay: `${((greetingDuration / 1000) + 1.4)}s`}} */>{__("description")}</p>
+        </BlurFade>
     </section>)
 }

@@ -19,7 +19,22 @@
     "sections_content": {
       "home": {
         "greeting": "¡Hola, Soy {name}!",
-        "role": "Desarrollador Web"
+        "role": "Desarrollador",
+        "subrole": "Web",
+        "subrole1": "Backend",
+        "subrole2": "Frontend",
+        "description": "Desarrollador de software Full-Stack autodidacta de Venezuela, apasionado por la resolución de problemas a través de software, mayormente orientado al desarrollo Backend."
+      },
+      "about": {
+        "title": "Sobre Mí",
+        "description": {
+          "p1": "Desarrollador Web apasionado por crear soluciones digitales funcionales, rápidas y centradas en el usuario. Actualmente formo parte del equipo de OCAM Group, donde participo en el desarrollo y mantenimiento de aplicaciones web que optimizan procesos y generan valor real para el negocio.",
+          "p2": "Con formación en el Instituto Universitario de Tecnología de Administración Industrial, combino conocimientos técnicos sólidos con un enfoque práctico para entregar proyectos de calidad en entornos dinámicos. Me especializo en el desarrollo web, trabajando con tecnologías modernas para construir interfaces intuitivas y sistemas robustos.",
+          "p3": "Me motiva resolver problemas reales a través del código, aprender continuamente y colaborar en equipos multidisciplinarios. Siempre busco oportunidades para contribuir en proyectos innovadores, ya sea mejorando la experiencia del usuario, optimizando rendimiento o implementando nuevas funcionalidades."
+        }
+      },
+      "skills": {
+        "title": "Arsenal Tecnológico"
       }
     }
   }

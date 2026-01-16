@@ -5,6 +5,7 @@ import '../globals.css';
 import { notFound } from 'next/navigation';
 import Navbar from '@/components/Navbar';
 import { Inter } from 'next/font/google';
+import { TooltipProvider } from '@/components/ui/tooltip';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -53,11 +54,13 @@ export default async function LocaleLayout({
             enableSystem={false}                 // respeta preferencia del sistema
             disableTransitionOnChange    // evita animación rara al cambiar
           >
-            <Navbar />
-            <main className="grow">
-              {children}
-            </main>
-            {/* Footer aquí si lo quieres global */}
+            <TooltipProvider>
+              <Navbar />
+              <main className="grow">
+                {children}
+              </main>
+              {/* Footer aquí si lo quieres global */}
+            </TooltipProvider>
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>
