@@ -46,7 +46,7 @@ const LanguageSwitcher: React.FC = () => {
                         for(const locale in Locales) {
                             if(locale !== currentLocale) {
                                 components.push(
-                                    <DropdownMenuItem onSelect={() => changeLanguage(locale as LocalesType)}>
+                                    <DropdownMenuItem key={locale} onSelect={() => changeLanguage(locale as LocalesType)}>
                                         {Locales[locale as keyof (typeof Locales)]} ({locale.toUpperCase()})
                                     </DropdownMenuItem>
                                 );

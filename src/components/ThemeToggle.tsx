@@ -7,6 +7,7 @@ import DarkModeIcon from '@mui/icons-material/DarkMode';
 import { useTranslations } from 'next-intl';
 import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip';
 import { Button } from '@/components/ui/button';
+import { AnimatedThemeToggler } from './ui/animated-theme-toggler';
 
 export default function ThemeToggle() {
     const { theme, setTheme } = useTheme();
@@ -20,19 +21,22 @@ export default function ThemeToggle() {
     if (!mounted) return null; // evita mismatch server/client
 
     return (
-        <Tooltip>
-            <TooltipTrigger asChild>
-                <Button size="icon" className="rounded-full bg-transparent cursor-pointer hover:bg-transparent" onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
-                    {theme === 'dark' ? (
-                        <LightModeIcon className="h-5 w-5 text-yellow-400" />
-                    ) : (
-                        <DarkModeIcon className="h-5 w-5" style={{color: "#2196f3"}} />
-                    )}
-                </Button>
-            </TooltipTrigger>
-            <TooltipContent className="TooltipContent">
-                <p>{__('theme-mode', { theme: __(`theme.${theme}`).toLowerCase() })}</p>
-            </TooltipContent>
-        </Tooltip>
+        <>
+            <AnimatedThemeToggler className='cursor-pointer' />
+            {/* <Tooltip>
+                <TooltipTrigger asChild>
+                    <Button size="icon" className="rounded-full bg-transparent cursor-pointer hover:bg-transparent" onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
+                        {theme === 'dark' ? (
+                            <LightModeIcon className="h-5 w-5 text-yellow-400" />
+                        ) : (
+                            <DarkModeIcon className="h-5 w-5" style={{color: "#2196f3"}} />
+                        )}
+                    </Button>
+                </TooltipTrigger>
+                <TooltipContent className="TooltipContent">
+                    <p>{__('theme-mode', { theme: __(`theme.${theme}`).toLowerCase() })}</p>
+                </TooltipContent>
+            </Tooltip> */}
+        </>
     );
 }

@@ -2,7 +2,6 @@ import { useTranslations } from "next-intl";
 import { OrbitingCirclesDemo } from "../OrbitingIcons";
 import { ShineBorder } from "../ui/shine-border";
 import { Card, CardHeader, CardTitle } from "../ui/card";
-// import { AuroraText } from "../ui/aurora-text";
 
 export default function About() {
     const __ = useTranslations('layout.sections_content');
@@ -22,16 +21,18 @@ export default function About() {
                 <ShineBorder shineColor={["#9368F9", "#E769F7", "#40CF89"]} />
                 <CardHeader>
                     <CardTitle className="text-5xl mb-2">
-                        {/* <AuroraText colors={["var(--dark-purple-color)", "var(--neon-green-color)", "var(--light-purple-color)"]}> */}
-                            {__("skills.title")}
-                        {/* </AuroraText> */}
+                        {__("skills.title")}
                     </CardTitle>
                     {/* <h1 className="text-5xl mb-8">{__("skills.title")}</h1> */}
                 </CardHeader>
                 <div className="pl-6 pb-6 flex gap-4 justify-between">
-                    <p className="grow">Hola</p>
+                    <div className="grow text-gray-400 indent-6">
+                        <p>{__("skills.description")}</p>
+                        <br/>
+                        <p>{__("skills.description2")}</p>
+                    </div>
                     {/* <div className="w-48 overflow-hidden ml-auto"> */}
-                    <div className="w-48 overflow-hidden">
+                    <div className="w-48 overflow-hidden shrink-0">
                         <OrbitingCirclesDemo/>
                     </div>
                     {/* </div> */}

@@ -34,7 +34,9 @@
         }
       },
       "skills": {
-        "title": "Arsenal Tecnológico"
+        "title": "Arsenal Tecnológico",
+        "description": "Me especializo en una variedad de lenguajes, marcos y herramientas que me permiten crear aplicaciones robustas y escalables.",
+        "description2": "Como desarrollador Full Stack, he cultivado un dominio equilibrado entre frontend, backend y bases de datos, permitiéndome abordar proyectos completos desde la concepción hasta la implementación. Mi stack refleja tanto experiencia en producción como exploración activa de tecnologías modernas."
       }
     }
   }

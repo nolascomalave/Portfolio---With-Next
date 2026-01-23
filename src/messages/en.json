@@ -36,7 +36,9 @@
         }
       },
       "skills": {
-        "title": "Arsenal Tech"
+        "title": "Arsenal Tech",
+        "description": "I specialize in a variety of languages, frameworks, and tools that allow me to build robust and scalable applications.",
+        "description2": "As a Full Stack developer, I have cultivated a balanced mastery of frontend, backend, and databases, enabling me to handle complete projects from conception to implementation. My stack reflects both production experience and active exploration of modern technologies."
       }
     }
   }

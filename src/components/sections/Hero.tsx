@@ -5,7 +5,6 @@ import { MailOutline, GitHub, LinkedIn } from '@mui/icons-material';
 import { JSX } from "@emotion/react/jsx-runtime";
 import { TypingAnimation } from "@/components/ui/typing-animation";
 import { BlurFade } from "@/components/ui/blur-fade"
-import { AuroraText } from "../ui/aurora-text";
 
 export const contactLinks: {label: string, Icon: JSX.Element, href: string, target?: string}[] = [
     {label: "GitHub", Icon: <GitHub color="inherit" />, href: "https://github.com/nolascomalave", target: "_blank"},
@@ -42,9 +41,7 @@ export default function Hero() {
         </div>
 
         <h1 className="text-5xl font-bold mt-8 text-center">
-            {/* <AuroraText speed={2}> */}
-                <TypingAnimation duration={greetingTypingDuration}>{greetingText}</TypingAnimation>
-            {/* </AuroraText> */}
+            <TypingAnimation duration={greetingTypingDuration}>{greetingText}</TypingAnimation>
         </h1>
         <h3 className="text-3xl m-auto flex items-center gap-2 justify-center text-dark-purple"/*  style={{justifyContent: isLocaleES ? "start" : "end"}} */>
             {/* {isLocaleES ? (<span className="text-gray-300">{__("role")}</span>) : null} <WordRotate className="text-dark-purple" words={[__("subrole"), __("subrole1"), __("subrole2")]}/> {isLocaleES ? null : (<span className="text-gray-300">{__("role")}</span>)} */}
