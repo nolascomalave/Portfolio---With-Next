@@ -46,7 +46,15 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning className={`${inter.className} font-sans`}>
-      <body className='bg-light dark:bg-dark text-light-text dark:text-dark-text min-h-screen flex flex-col'>
+      <body className='text-light-text dark:text-dark-text min-h-screen flex flex-col bg-[radial-gradient(circle_at_top_left,_rgba(64,207,137,0.35),_var(--light-color)_70%)] dark:bg-[radial-gradient(125%_125%_at_50%_100%,_#000000_40%,_#350136_100%)]'
+        style={{
+          // backgroundImage: "radial-gradient(125% 125% at 50% 100%, #000000 40%, #350136 100%)",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+          backgroundAttachment: "fixed",
+        }}
+      >
         <NextIntlClientProvider locale={locale} messages={messages}>
           <ThemeProvider
             attribute="class"
@@ -67,3 +75,17 @@ export default async function LocaleLayout({
     </html>
   );
 }
+
+<div className="min-h-screen w-full relative bg-white">
+  <div
+    className="absolute inset-0 z-0"
+    style={{
+      background: "#ffffff",
+      backgroundImage: `
+        radial-gradient(circle_at_top_left,_rgba(173,109,244,0.5),_transparent_70%)
+      `,
+      filter: "blur(80px)",
+      backgroundRepeat: "no-repeat",
+    }}
+  />
+</div>

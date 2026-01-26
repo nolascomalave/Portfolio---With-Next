@@ -43,7 +43,7 @@ export default function Hero() {
         <h1 className="text-5xl font-bold mt-8 text-center">
             <TypingAnimation duration={greetingTypingDuration}>{greetingText}</TypingAnimation>
         </h1>
-        <h3 className="text-3xl m-auto flex items-center gap-2 justify-center text-dark-purple"/*  style={{justifyContent: isLocaleES ? "start" : "end"}} */>
+        <h3 className="text-3xl m-auto flex items-center gap-2 justify-center dark:text-neon-green text-dark-purple"/*  style={{justifyContent: isLocaleES ? "start" : "end"}} */>
             {/* {isLocaleES ? (<span className="text-gray-300">{__("role")}</span>) : null} <WordRotate className="text-dark-purple" words={[__("subrole"), __("subrole1"), __("subrole2")]}/> {isLocaleES ? null : (<span className="text-gray-300">{__("role")}</span>)} */}
             {/* <TextAnimate animation="blurInUp" by="character" delay={greetingDuration / 1000} duration={0.7}>{`${(isLocaleES ? __("role").concat(" ") : "")}${__("subrole")}${(!isLocaleES ? (" ").concat(__("role")) : "")}`}</TextAnimate> */}
             <BlurFade delay={((greetingDuration / 1000))}>
