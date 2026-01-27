@@ -11,11 +11,11 @@ export default function Contact() {
             <article className="w-full">
                 <h1 className="text-2xl mb-8 uppercase">Let’s work together</h1>
 
-                <p className="text-1xl text-gray-400 indent-6">
+                <p className="text-1xl text-gray-500 dark:text-gray-300 indent-6">
                     If you’re building a product, scaling a frontend platform, or navigating complex technical decisions, I’m open to conversations around collaboration, consulting, or technical leadership.
                 </p>
                 <br />
-                <p className="text-1xl text-gray-400 indent-6">
+                <p className="text-1xl text-gray-500 dark:text-gray-300 indent-6">
                     Whether you’re a founder, engineering lead, or part of a growing team, feel free to reach out to discuss how we can work together.
                 </p>
             </article>

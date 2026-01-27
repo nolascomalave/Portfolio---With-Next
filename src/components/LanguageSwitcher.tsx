@@ -1,12 +1,10 @@
-import React, { useState, useTransition } from 'react';
-// import { Button, Menu, MenuItem } from '@mui/material';
-import LanguageIcon from '@mui/icons-material/Language';
+import React, { useTransition } from 'react';
 import { Locales, LocalesType } from '../i18n/routing';
 import { useLocale, useTranslations } from 'next-intl';
 import { useRouter, usePathname } from 'next/navigation';
 import { DropdownMenu, DropdownMenuLabel, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuSeparator } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
-// import { Button } from '@mui/material';
+import { Globe } from 'lucide-react';
 
 const LanguageSwitcher: React.FC = () => {
     const triggerReff = React.useRef<HTMLButtonElement>(null);
@@ -32,8 +30,8 @@ const LanguageSwitcher: React.FC = () => {
         <div>
             <DropdownMenu>
                 <DropdownMenuTrigger asChild ref={triggerReff}>
-                    <Button className="bg-transparent cursor-pointer hover:bg-transparent text-inherit" onClick={e => triggerReff.current?.click()}>
-                        <LanguageIcon className="h-5 w-5" />
+                    <Button className="bg-transparent cursor-pointer hover:bg-transparent text-inherit [&_svg]:size-6" onClick={e => triggerReff.current?.click()}>
+                        <Globe />
                         {currentLocale.toUpperCase()}
                     </Button>
                 </DropdownMenuTrigger>

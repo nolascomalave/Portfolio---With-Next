@@ -5,8 +5,8 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import LanguageSwitcher from './LanguageSwitcher';
-import ThemeToggle from './ThemeToggle';
 import Image from 'next/image';
+import { AnimatedThemeToggler } from './ui/animated-theme-toggler';
 
 export default function Navbar() {
   const __ = useTranslations('layout.sections-list');
@@ -68,7 +68,7 @@ export default function Navbar() {
             </ul>
 
             <div className='flex items-center gap-2 shrink-0'>
-                <ThemeToggle />
+                <AnimatedThemeToggler className='cursor-pointer' />
                 <LanguageSwitcher/>
             </div>
         </div>

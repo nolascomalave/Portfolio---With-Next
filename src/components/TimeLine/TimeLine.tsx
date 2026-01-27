@@ -11,7 +11,8 @@ const Experience = [
     year: "2022 - Actualidad",
     title: "Analista Programador Web Full Stack",
     company: "OCAM Group",
-    Description: "Diseño y desarrollo de soluciones empresariales personalizadas para diversos clientes, colaborando en la creación de sistemas integrales que optimizan procesos organizacionales."
+    Description: "Diseño y desarrollo de soluciones empresariales personalizadas para diversos clientes, colaborando en la creación de sistemas integrales que optimizan procesos organizacionales.",
+    technologies: ["JavaScript", "TypeScript", "React", "Node.js", "SQL", "NoSQL"]
   }
 ]
 

@@ -6,6 +6,7 @@ import { notFound } from 'next/navigation';
 import Navbar from '@/components/Navbar';
 import { Inter } from 'next/font/google';
 import { TooltipProvider } from '@/components/ui/tooltip';
+import Footer from '@/components/Footer';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -68,6 +69,7 @@ export default async function LocaleLayout({
                 {children}
               </main>
               {/* Footer aquí si lo quieres global */}
+              <Footer/>
             </TooltipProvider>
           </ThemeProvider>
         </NextIntlClientProvider>

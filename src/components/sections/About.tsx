@@ -10,11 +10,11 @@ export default function About() {
         <article className="w-full">
             <h1 className="text-5xl mb-8">{__("about.title")}</h1>
 
-            <p className="text-1xl text-gray-400 indent-6">{__("about.description.p1")}</p>
+            <p className="text-1xl text-gray-500 dark:text-gray-300 indent-6">{__("about.description.p1")}</p>
             <br/>
-            <p className="text-1xl text-gray-400 indent-6">{__("about.description.p2")}</p>
+            <p className="text-1xl text-gray-500 dark:text-gray-300 indent-6">{__("about.description.p2")}</p>
             <br/>
-            <p className="text-1xl text-gray-400 indent-6">{__("about.description.p3")}</p>
+            <p className="text-1xl text-gray-500 dark:text-gray-300 indent-6">{__("about.description.p3")}</p>
         </article>
         <article className="w-full">
             <Card className="relative w-full overflow-hidden">
@@ -26,7 +26,7 @@ export default function About() {
                     {/* <h1 className="text-5xl mb-8">{__("skills.title")}</h1> */}
                 </CardHeader>
                 <div className="pl-6 pb-6 flex gap-4 justify-between">
-                    <div className="grow text-gray-400 indent-6">
+                    <div className="grow text-gray-500 dark:text-gray-300 indent-6">
                         <p>{__("skills.description")}</p>
                         <br/>
                         <p>{__("skills.description2")}</p>

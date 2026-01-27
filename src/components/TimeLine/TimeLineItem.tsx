@@ -19,7 +19,7 @@ export default function TimeLineItem({
                     <h2 className="text-md font-bold dark:text-dark-purple text-neon-green">{company}</h2>
                     <h3 className="text-lg font-bold">{title}</h3>
 
-                    <p className="mt-0.5 text-1xl text-gray-400">
+                    <p className="mt-0.5 text-1xl text-gray-500 dark:text-gray-300">
                         {typeof Description === "string" ? Description : <Description />}
                     </p>
                 </div>
