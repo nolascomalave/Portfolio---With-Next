@@ -37,7 +37,12 @@
         "title": "Arsenal Tecnológico",
         "description": "Me especializo en una variedad de lenguajes, marcos y herramientas que me permiten crear aplicaciones robustas y escalables.",
         "description2": "Como desarrollador Full Stack, he cultivado un dominio equilibrado entre frontend, backend y bases de datos, permitiéndome abordar proyectos completos desde la concepción hasta la implementación. Mi stack refleja tanto experiencia en producción como exploración activa de tecnologías modernas."
+      },
+      "contact": {
+        "title": "Contacto",
+        "description": "Estoy abierto a nuevas oportunidades y colaboraciones. Si tienes una idea de producto, quieres hablar sobre un puesto o simplemente quieres conectar, me encantaría saber de ti. Puedes contactarme a través de este formulario o <link>LinkedIn</link> - hablemos de lo que estás desarrollando."
       }
-    }
+    },
+    "footer": "<paragraph>Diseñado y Desarrollado por Nolasco Malavé.</paragraph><paragraph>Construido con <highlighted>Next.js</highlighted>, <highlighted>Shadcn</highlighted> y <highlighted>Tailwind</highlighted>. Alojado en Vercel.</paragraph>"
   }
 }

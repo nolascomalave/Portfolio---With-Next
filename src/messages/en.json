@@ -39,7 +39,12 @@
         "title": "Arsenal Tech",
         "description": "I specialize in a variety of languages, frameworks, and tools that allow me to build robust and scalable applications.",
         "description2": "As a Full Stack developer, I have cultivated a balanced mastery of frontend, backend, and databases, enabling me to handle complete projects from conception to implementation. My stack reflects both production experience and active exploration of modern technologies."
+      },
+      "contact": {
+        "title": "Contact",
+        "description": "I'm currently open to new opportunities and collaborations. Whether you have a product idea, want to discuss a role, or simply want to connect, I'd be happy to hear from you. You can reach me this form or <link>LinkedIn</link> — let's talk about what you're building."
       }
-    }
+    },
+    "footer": "<paragraph>Designed and Developed by Nolasco Malavé.</paragraph><paragraph>Built with <highlighted>Next.js</highlighted>, <highlighted>Shadcn</highlighted> & <highlighted>Tailwind</highlighted>. Hosted on Vercel.</paragraph>"
   }
 }

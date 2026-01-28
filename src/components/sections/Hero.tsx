@@ -5,11 +5,12 @@ import { TypingAnimation } from "@/components/ui/typing-animation";
 import { BlurFade } from "@/components/ui/blur-fade"
 import { GithubIcon, LinkedinIcon, MailIcon } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { Email, Github, LinkedIn } from "@/lib/links";
 
 export const contactLinks: {label: string, Icon: JSX.Element, href: string, target?: string}[] = [
-    {label: "GitHub", Icon: <GithubIcon />, href: "https://github.com/nolascomalave", target: "_blank"},
-    {label: "LinkedIn", Icon: <LinkedinIcon />, href: "https://www.linkedin.com/in/nolasco-rafael-malave-castro", target: "_blank"},
-    {label: "Email", Icon: <MailIcon />, href: "mailto:nolascomalave@hotmail.com"},
+    {label: "GitHub", Icon: <GithubIcon />, href: Github, target: "_blank"},
+    {label: "LinkedIn", Icon: <LinkedinIcon />, href: LinkedIn, target: "_blank"},
+    {label: "Email", Icon: <MailIcon />, href: Email},
 ]
 
 export default function Hero() {

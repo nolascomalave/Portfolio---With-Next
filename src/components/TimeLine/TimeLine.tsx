@@ -18,7 +18,7 @@ const Experience = [
 
 export default function TimeLine() {
     return (
-        <ol className="relative space-y-8 before:absolute before:top-0 before:left-1/2 before:h-full before:w-0.5 before:-translate-x-1/2 before:rounded-full before:bg-linear-to-b before:from-dark-purple dark:before:from-neon-green before:to-neon-green dark:before:to-dark-purple">
+        <ol className="relative space-y-8 before:absolute before:top-0 before:left-0 md:before:left-1/2 before:h-full before:w-0.5 before:-translate-x-1/2 before:rounded-full before:bg-linear-to-b before:from-dark-purple dark:before:from-neon-green before:to-neon-green dark:before:to-dark-purple">
         <TimeLineItem {...Experience[0]}/>
         <TimeLineItem {...Experience[0]}/>
         <TimeLineItem {...Experience[0]}/>

@@ -1,9 +1,9 @@
 import { OrbitingCircles } from "@/components/ui/orbiting-circles";
 import Image from "next/image";
 import TechnologiesItems from "@/lib/technologies-items";
-export function OrbitingCirclesDemo() {
+export function OrbitingCirclesDemo({className}: {className: string}) {
   return (
-    <div className="relative flex h-96 w-96 flex-col items-center justify-center overflow-hidden">
+    <div className={className}>
         <OrbitingCircles iconSize={250} reverse>
             <Icons.React/>
             <Icons.MaterialUI/>

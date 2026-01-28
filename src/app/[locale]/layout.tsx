@@ -77,17 +77,3 @@ export default async function LocaleLayout({
     </html>
   );
 }
-
-<div className="min-h-screen w-full relative bg-white">
-  <div
-    className="absolute inset-0 z-0"
-    style={{
-      background: "#ffffff",
-      backgroundImage: `
-        radial-gradient(circle_at_top_left,_rgba(173,109,244,0.5),_transparent_70%)
-      `,
-      filter: "blur(80px)",
-      backgroundRepeat: "no-repeat",
-    }}
-  />
-</div>

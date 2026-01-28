@@ -10,8 +10,8 @@ export default function TimeLineItem({
     company: string;
 }) {
     return (
-        <li className="group relative grid grid-cols-2 odd:-me-3 even:-ms-3">
-            <div className="relative flex items-start gap-4 group-odd:flex-row-reverse group-odd:text-right group-even:order-last">
+        <li className="group relative md:grid md:grid-cols-2 -ms-1.5 md:-ms-3 md:odd:-me-3 md:odd:-ms-0">
+            <div className="relative flex items-start gap-4 order-last md:group-odd:order-first md:group-odd:flex-row-reverse md:group-odd:text-right">
                 <span className="size-3 shrink-0 rounded-full dark:bg-neon-green bg-dark-purple"></span>
 
                 <div className="-mt-2">
@@ -24,7 +24,7 @@ export default function TimeLineItem({
                     </p>
                 </div>
             </div>
-            <div aria-hidden="true"></div>
+            <div aria-hidden="true" className="hidden md:block"></div>
         </li>
     );
 }
