@@ -10,7 +10,6 @@ import { AnimatedThemeToggler } from './ui/animated-theme-toggler';
 import MobileNavButton from './MobileNavButton';
 import * as motion from "motion/react-client";
 import { AnimatePresence } from 'framer-motion';
-import { he } from 'zod/v4/locales';
 
 const menuVariants = {
     closed: {
@@ -29,7 +28,7 @@ const menuVariants = {
 
 const blurBackdropVariants = {
     open: {
-        height: "100vh",
+        height: "100lvh",
         width: "100vw",
     },
     closed: {
@@ -77,7 +76,7 @@ export default function Navbar() {
                     transition={{ duration: isOpenMobileMenu ? 0.2 : 0.4, ease: 'easeInOut' }}
                 />
             </AnimatePresence>
-            {/* <div className={`backdrop-blur-md absolute z-1 top-0 right-0 ${isOpenMobileMenu ? "w-screen h-screen" : "bottom-0 left-0"}`}></div> */}
+            {/* <div className={`backdrop-blur-md absolute z-1 top-0 right-0 ${isOpenMobileMenu ? "w-lvw h-lvh" : "bottom-0 left-0"}`}></div> */}
             <div className='flex p-[0.5rem] max-w-7xl w-full m-auto justify-between z-2'>
                 <div className="flex items-center shrink-0">
                     <Link href={`/${locale}/`}>
@@ -102,10 +101,10 @@ export default function Navbar() {
                         initial="closed"
                         transition={{ duration: 0.4, ease: 'easeInOut' }}
                         variants={menuVariants}
-                        className='absolute w-screen flex flex-col text-2xl gap-8 left-0 items-center justify-center'
+                        className='absolute w-lvw flex flex-col text-2xl gap-8 left-0 items-center justify-center'
                         style={{
                             top: `calc(0px + ${!navRef.current ? 0 : navRef.current.offsetHeight}px)`,
-                            height: `calc(100vh - ${!navRef.current ? 0 : navRef.current.offsetHeight}px)`,
+                            height: `calc(100lvh - ${!navRef.current ? 0 : navRef.current.offsetHeight}px)`,
                         }}
                     >
                         {navLinks.map((link) => (
