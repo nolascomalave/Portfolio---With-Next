@@ -10,6 +10,14 @@ import { AnimatedThemeToggler } from './ui/animated-theme-toggler';
 import MobileNavButton from './MobileNavButton';
 import * as motion from "motion/react-client";
 import { AnimatePresence } from 'framer-motion';
+import { useNav } from '@/context/NavContext';
+
+type LinkType = {
+    href: string;
+    label: string;
+    key: string;
+    isHomeAnchor?: boolean;
+}
 
 const menuVariants = {
     closed: {
@@ -35,12 +43,60 @@ const blurBackdropVariants = {
         height: "auto",
         width: "auto",
     }
+};
+
+const renderLinks = (link: LinkType, activeSection: string, __: (val: string) => string) => {
+    const isHomeAnchor = (link.isHomeAnchor ?? false) === true,
+        sectionID = (isHomeAnchor ? HomeAnchorID : link.href.slice(1)),
+        isActive = activeSection === sectionID;
+
+    return (
+        <motion.li key={link.href} className="relative pb-1">
+            <Link
+                href={isHomeAnchor ? `#${HomeAnchorID}` : link.href}
+                className={`p-2 ${isActive ? "text-dark-purple dark:text-neon-green font-semibold" : ""}`}
+                onClick={(e) => {
+                    e.preventDefault();
+
+                    const element = document.getElementById(sectionID);
+
+                    if (element) {
+                        element.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start',     // o 'center' si quieres centrar la sección
+                        });
+                    }
+
+                    window.history.replaceState(null, "", `#${sectionID}`);
+                }}
+            >
+                {__(link.label)}
+            </Link>
+            {isActive && (
+                <motion.div
+                    layoutId="activeIndicator" // ¡Magia! Comparte la animación entre items
+                    className="absolute left-0 right-0 h-0.5 bg-dark-purple dark:bg-neon-green rounded-full"
+                    initial={false}
+                    transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                />
+            )}
+        </motion.li>
+    )
 }
+
+const navLinks: LinkType[] = [
+  { href: '#home_anchor', label: 'home', key: 'home', isHomeAnchor: true },
+  { href: '#about', label: 'about', key: 'about' },
+  { href: '#experience', label: 'experience', key: 'experience' },
+  { href: '#contact', label: 'contact', key: 'contact' },
+];
+
+export const HomeAnchorID = "home";
 
 export default function Navbar() {
   const __ = useTranslations('layout.sections-list');
   const navRef = useRef<HTMLElement>(null);
-  // const pathname = usePathname();
+  const { activeSection } = useNav();
   const locale = useLocale();
   const [mounted, setMounted] = useState(false);
   const [isOpenMobileMenu, setIsOpenMobileMenu] = useState(false);
@@ -51,22 +107,9 @@ export default function Navbar() {
 
   if (!mounted) return null;
 
-  // const currentPath = pathname.replace(`/${locale}`, '') || '/';
-
-  const navLinks = [
-    { href: '/', label: __('home'), key: '/' },
-    { href: '/about', label: __('about'), key: '/about' },
-    { href: '/skills', label: __('skills'), key: '/skills' },
-    { href: '/projects', label: __('projects'), key: '/projects' },
-    { href: '/contact', label: __('contact'), key: '/contact' },
-  ];
-
-  // Encontrar el enlace activo
-  // const activeLink = navLinks.find(link => currentPath === link.key) || navLinks[0];
-
   return (
     <>
-        <nav ref={navRef} className="sticky top-0 left-0 right-0 z-50 transition-colors flex gap-[0.125rem] text-inherit z-[1000]">
+        <nav ref={navRef} className="sticky top-0 left-0 right-0 z-20 transition-colors flex gap-[0.125rem] text-inherit z-[1000]">
             <AnimatePresence>
                 <motion.div
                     className="backdrop-blur-md absolute z-1 top-0 right-0 bottom-0 left-0"
@@ -107,32 +150,14 @@ export default function Navbar() {
                             height: `calc(100lvh - ${!navRef.current ? 0 : navRef.current.offsetHeight}px)`,
                         }}
                     >
-                        {navLinks.map((link) => (
-                            <motion.li key={link.href}>
-                                <Link
-                                    href={`/${locale}${link.href}`}
-                                    className='p-2'
-                                >
-                                    {link.label}
-                                </Link>
-                            </motion.li>
-                        ))}
+                        {navLinks.map(link => renderLinks(link, activeSection, __))}
                     </motion.ul>
                 </AnimatePresence>
 
                 <ul
                     className="hidden sm:flex grow list-none items-center justify-center gap-0.5"
                 >
-                    {navLinks.map((link) => (
-                        <li key={link.href}>
-                            <Link
-                                href={`/${locale}${link.href}`}
-                                className='p-2'
-                            >
-                                {link.label}
-                            </Link>
-                        </li>
-                    ))}
+                    {navLinks.map(link => renderLinks(link, activeSection, __))}
                 </ul>
 
                 <div className='flex items-center gap-2 shrink-0'>

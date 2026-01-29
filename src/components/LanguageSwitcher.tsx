@@ -35,7 +35,7 @@ const LanguageSwitcher: React.FC = () => {
                         {currentLocale.toUpperCase()}
                     </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="start">
+                <DropdownMenuContent align="start" style={{zIndex: 1000}}>
                     <DropdownMenuLabel>{__("select-language")}</DropdownMenuLabel>
                     <DropdownMenuSeparator />
                     <DropdownMenuGroup>

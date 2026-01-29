@@ -3,10 +3,11 @@ import { ThemeProvider } from 'next-themes';
 // import Navbar from '@/components/Navbar'; // crea este componente después
 import '../globals.css';
 import { notFound } from 'next/navigation';
-import Navbar from '@/components/Navbar';
+import Navbar, { HomeAnchorID } from '@/components/Navbar';
 import { Inter } from 'next/font/google';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import Footer from '@/components/Footer';
+import { NavProvider } from '@/context/NavContext';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -69,12 +70,15 @@ export default async function LocaleLayout({
             disableTransitionOnChange    // evita animación rara al cambiar
           >
             <TooltipProvider>
-              <Navbar />
-              <main className="grow">
-                {children}
-              </main>
-              {/* Footer aquí si lo quieres global */}
-              <Footer/>
+              <NavProvider>
+                <div id={HomeAnchorID} className='absolute top-0 w-0 h-0 -z-10'></div>
+                <Navbar />
+                <main className="grow">
+                  {children}
+                </main>
+                {/* Footer aquí si lo quieres global */}
+                <Footer/>
+              </NavProvider>
             </TooltipProvider>
           </ThemeProvider>
         </NextIntlClientProvider>

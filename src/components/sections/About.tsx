@@ -1,12 +1,29 @@
+"use client";
+
 import { useTranslations } from "next-intl";
 import { OrbitingCirclesDemo } from "../OrbitingIcons";
 import { ShineBorder } from "../ui/shine-border";
 import { Card, CardHeader, CardTitle } from "../ui/card";
+import { useEffect, useRef } from "react";
+import { useInView } from "framer-motion";
+import { useNav } from "@/context/NavContext";
 
-export default function About() {
+export default function About({ id }: { id: string; }) {
     const __ = useTranslations('layout.sections_content');
+    const ref = useRef<HTMLElement>(null);
+    const isInView = useInView(ref, {
+        margin: "-40% 0px -60% 0px", // activa cuando ~40% superior entra y ~60% inferior sale
+        // amount: 0.3, // o usa amount si prefieres porcentaje fijo
+    });
+    const { setActiveSection } = useNav();
 
-    return (<section className="m-auto py-8 mt-14 px-4 max-w-7xl flex flex-col lg:flex-row gap-10 items-start">
+    useEffect(() => {
+      if (isInView) {
+        setActiveSection(id);
+      }
+    }, [isInView]);
+
+    return (<section ref={ref} id={id} className="m-auto py-8 mt-14 px-4 max-w-7xl flex flex-col lg:flex-row gap-10 items-start">
         <article className="w-full">
             <h1 className="text-5xl mb-8">{__("about.title")}</h1>
 

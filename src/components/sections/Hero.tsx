@@ -1,3 +1,5 @@
+"use client";
+
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import { JSX } from "@emotion/react/jsx-runtime";
@@ -6,6 +8,9 @@ import { BlurFade } from "@/components/ui/blur-fade"
 import { GithubIcon, LinkedinIcon, MailIcon } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Email, Github, LinkedIn } from "@/lib/links";
+import { useInView } from "framer-motion";
+import { useNav } from "@/context/NavContext";
+import { useEffect, useRef } from "react";
 
 export const contactLinks: {label: string, Icon: JSX.Element, href: string, target?: string}[] = [
     {label: "GitHub", Icon: <GithubIcon />, href: Github, target: "_blank"},
@@ -13,15 +18,27 @@ export const contactLinks: {label: string, Icon: JSX.Element, href: string, targ
     {label: "Email", Icon: <MailIcon />, href: Email},
 ]
 
-export default function Hero() {
+export default function Hero({ id }: { id: string; }) {
     const __ = useTranslations('layout.sections_content.home'),
         locale = useLocale(),
         isLocaleES = locale === "es",
         greetingTypingDuration = 100,
         greetingText = __("greeting", {name: "Nolasco Malavé"}),
         greetingDuration = greetingText.length * greetingTypingDuration;
+    const ref = useRef<HTMLElement>(null),
+        isInView = useInView(ref, {
+            margin: "-40% 0px -60% 0px", // activa cuando ~40% superior entra y ~60% inferior sale
+            // amount: 0.3, // o usa amount si prefieres porcentaje fijo
+        }),
+        { setActiveSection } = useNav();
 
-    return (<section className="m-auto py-8 mt-14 px-4 max-w-7xl">
+    useEffect(() => {
+      if (isInView) {
+        setActiveSection(id);
+      }
+    }, [isInView]);
+
+    return (<section ref={ref} id={id} className="m-auto py-8 mt-14 px-4 max-w-7xl">
         <Image
             width={100}
             height={100}
