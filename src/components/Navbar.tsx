@@ -11,6 +11,7 @@ import MobileNavButton from './MobileNavButton';
 import * as motion from "motion/react-client";
 import { AnimatePresence } from 'framer-motion';
 import { useNav } from '@/context/NavContext';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
 
 type LinkType = {
     href: string;
@@ -45,7 +46,19 @@ const blurBackdropVariants = {
     }
 };
 
-const renderLinks = (link: LinkType, activeSection: string, __: (val: string) => string) => {
+const renderLinks = ({
+    link,
+    activeSection,
+    __,
+    isOpenMobileMenu,
+    setIsOpenMobileMenu
+}: {
+    link: LinkType,
+    activeSection: string,
+    __: (val: string) => string,
+    isOpenMobileMenu: boolean;
+    setIsOpenMobileMenu: (val: boolean) => void;
+}) => {
     const isHomeAnchor = (link.isHomeAnchor ?? false) === true,
         sectionID = (isHomeAnchor ? HomeAnchorID : link.href.slice(1)),
         isActive = activeSection === sectionID;
@@ -61,10 +74,14 @@ const renderLinks = (link: LinkType, activeSection: string, __: (val: string) =>
                     const element = document.getElementById(sectionID);
 
                     if (element) {
-                        element.scrollIntoView({
+                        if(isOpenMobileMenu) {
+                            setIsOpenMobileMenu(false);
+                        }
+
+                        setTimeout(() => element.scrollIntoView({
                             behavior: 'smooth',
                             block: 'start',     // o 'center' si quieres centrar la sección
-                        });
+                        }), 0);
                     }
 
                     window.history.replaceState(null, "", `#${sectionID}`);
@@ -100,10 +117,17 @@ export default function Navbar() {
   const locale = useLocale();
   const [mounted, setMounted] = useState(false);
   const [isOpenMobileMenu, setIsOpenMobileMenu] = useState(false);
+  const isMobileMenu = useMediaQuery("(min-width: 40rem)");
 
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  useEffect(() => {
+    if (isMobileMenu && isOpenMobileMenu) {
+        setIsOpenMobileMenu(false);
+    }
+  }, [isMobileMenu]);
 
   if (!mounted) return null;
 
@@ -150,14 +174,26 @@ export default function Navbar() {
                             height: `calc(100lvh - ${!navRef.current ? 0 : navRef.current.offsetHeight}px)`,
                         }}
                     >
-                        {navLinks.map(link => renderLinks(link, activeSection, __))}
+                        {navLinks.map(link => renderLinks({
+                            link,
+                            activeSection,
+                            __,
+                            isOpenMobileMenu,
+                            setIsOpenMobileMenu
+                        }))}
                     </motion.ul>
                 </AnimatePresence>
 
                 <ul
                     className="hidden sm:flex grow list-none items-center justify-center gap-0.5"
                 >
-                    {navLinks.map(link => renderLinks(link, activeSection, __))}
+                    {navLinks.map(link => renderLinks({
+                        link,
+                        activeSection,
+                        __,
+                        isOpenMobileMenu,
+                        setIsOpenMobileMenu
+                    }))}
                 </ul>
 
                 <div className='flex items-center gap-2 shrink-0'>
