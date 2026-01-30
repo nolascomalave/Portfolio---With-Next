@@ -42,6 +42,51 @@
       "contact": {
         "title": "Contacto",
         "description": "Estoy abierto a nuevas oportunidades y colaboraciones. Si tienes una idea de producto, quieres hablar sobre un puesto o simplemente quieres conectar, me encantaría saber de ti. Puedes contactarme a través de este formulario o <link>LinkedIn</link> - hablemos de lo que estás desarrollando."
+      },
+      "experience": {
+        "title": "Experiencia",
+        "experiences": {
+          "0": {
+            "year": "Mar 2022 - Actualidad",
+            "title": "Analista Programador Web Full Stack",
+            "company": "OCAM Group",
+            "Description": "Diseño y desarrollo de soluciones empresariales personalizadas para diversos clientes, colaborando en la creación de sistemas integrales que optimizan procesos organizacionales.",
+            "technologies": {
+              "0": {
+                "type": "database",
+                "items": "MicrosoftSQLServer"
+              },
+              "1": {
+                "type": "backend",
+                "items": "Laravel"
+              },
+              "2": {
+                "type": "frontend",
+                "items": ["JQuery", "Lit", "Bootstrap"]
+              }
+            }
+          },
+          "1": {
+            "year": "Ago 2021 - Ene 2022",
+            "title": "Desarrollador Web",
+            "company": "Alcaldía del Municipio Turístico El Morro \"Lcdo. Diego Bautista Urbaneja\"",
+            "Description": "Contribuí a la modernización digital de procesos mediante el desarrollo de sistemas internos que mejoraron la eficiencia operativa, creando los siguientes sistemas:<list><listitem>Sistema de gestión de horario y asistencia</listitem><listitem>Sistema de gestión de permisos para ocupar de espacios dentro del municipio, vender bebidas alcohólicas y desplegar publicidad dentro del municipio.</listitem></list>",
+            "technologies": {
+              "0": {
+                "type": "database",
+                "items": ["MySQL", "MongoDB"]
+              },
+              "1": {
+                "type": "backend",
+                "items": ["PHP", "Express"]
+              },
+              "2": {
+                "type": "frontend",
+                "items": ["JQuery", "Bootstrap", "React", "MaterialUI"]
+              }
+            }
+          }
+        }
       }
     },
     "footer": "<paragraph>Diseñado y Desarrollado por Nolasco Malavé.</paragraph><paragraph>Construido con <highlighted>Next.js</highlighted>, <highlighted>Shadcn</highlighted> y <highlighted>Tailwind</highlighted>. Alojado en Vercel.</paragraph>"

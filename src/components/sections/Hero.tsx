@@ -57,7 +57,6 @@ export default function Hero({ id }: { id: string; }) {
                         {Icon}
                         <span className="ml-1">{label}</span>
                     </Badge>
-                    {/* <Chip icon={Icon} label={label} variant="outlined" style={{color: "inherit"}} /> */}
                 </a>
             ))}
         </div>

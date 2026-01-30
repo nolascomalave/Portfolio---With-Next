@@ -6,7 +6,6 @@ import { flushSync } from "react-dom"
 import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip';
 import { Button } from '@/components/ui/button';
 
-import { cn } from "@/lib/utils"
 import { useTheme } from "next-themes"
 import { useTranslations } from "next-intl";
 
@@ -16,8 +15,7 @@ interface AnimatedThemeTogglerProps extends React.ComponentPropsWithoutRef<"butt
 
 export const AnimatedThemeToggler = ({
   className,
-  duration = 400,
-  ...props
+  duration = 400
 }: AnimatedThemeTogglerProps) => {
   const { theme, setTheme } = useTheme();
   const [isDark, setIsDark] = useState(false);

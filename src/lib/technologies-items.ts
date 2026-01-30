@@ -26,14 +26,16 @@ export default {
     frontend: {
         imagesRoute: "/web-technologies/frontend/",
         items: {
+            Bootstrap: {title: "Bootstrap", icon: "Bootstrap.svg"},
             CSS3: {title: "CSS 3", icon: "CSS3.svg"},
             HTML5: {title: "HTML 5", icon: "HTML5.svg"},
             JavaScript: {title: "JavaScript", icon: "JavaScript.svg"},
-            jQuery: {title: "JQuery", icon: "jQuery.svg"},
+            JQuery: {title: "JQuery", icon: "JQuery.svg"},
+            Lit: {title: "Lit", icon: "Lit.svg"},
             MaterialUI: {title: "Material UI", icon: "MaterialUI.svg"},
             React: {title: "React", icon: "React.svg"},
             Sass: {title: "Sass", icon: "Sass.svg"},
-            tailwindcss: {title: "Tailwind", icon: "tailwindcss.svg"},
+            Tailwindcss: {title: "Tailwind", icon: "tailwindcss.svg"},
             TypeScript: {title: "TypeScript", icon: "TypeScript.svg"}
         }
     },

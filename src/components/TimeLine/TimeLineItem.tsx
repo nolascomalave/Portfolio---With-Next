@@ -1,14 +1,26 @@
+"use client";
+
+import { Badge } from "@/components/ui/badge";
+import { ExperienceItemData } from "./TimeLine";
+import Image from "next/image";
+import { useTheme } from "next-themes";
+import React, { useEffect, useState } from "react";
+
 export default function TimeLineItem({
-    year = "12/02/2025",
-    title = "Kickoff",
-    Description = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga officiis tempora ipsum adipisci tenetur sunt quae exercitationem sed pariatur porro!",
-    company = "Company Name"
-}: {
-    year: string | number;
-    Description: string | React.ElementType;
-    title: string;
-    company: string;
-}) {
+    year,
+    title,
+    Description,
+    company,
+    technologies
+}: ExperienceItemData) {
+    const [ isLoad, setIsLoad ] = useState<boolean>(false),
+        { theme } = useTheme();
+
+
+    useEffect(() => {
+        setIsLoad(true);
+    }, []);
+
     return (
         <li className="group relative md:grid md:grid-cols-2 -ms-1.5 md:-ms-3 md:odd:-me-3 md:odd:-ms-0">
             <div className="relative flex items-start gap-4 order-last md:group-odd:order-first md:group-odd:flex-row-reverse md:group-odd:text-right">
@@ -19,9 +31,27 @@ export default function TimeLineItem({
                     <h2 className="text-md font-bold dark:text-dark-purple text-neon-green">{company}</h2>
                     <h3 className="text-lg font-bold">{title}</h3>
 
-                    <p className="mt-0.5 text-1xl text-gray-500 dark:text-gray-300">
-                        {typeof Description === "string" ? Description : <Description />}
-                    </p>
+                    <div className="mt-0.5 text-1xl text-gray-500 dark:text-gray-300 mb-2">
+                        {React.isValidElement(Description) ? <Description /> : Description}
+                    </div>
+
+                    <div className="flex gap-2 md:group-odd:flex-row-reverse">
+                        {technologies.map(({title}, i: number) => (
+                            <div
+                                key={`${title}-${i}`}
+                                className="flex text-xs items-center justify-center gap-1 rounded-sm"
+                                style={{
+                                    padding: "0.25rem 0.325rem",
+                                    borderWidth: "1px",
+                                    borderColor: !isLoad ? undefined : theme == "dark" ? "var(--neon-green-color)" : "var(--dark-purple-color)",
+                                    color: !isLoad ? undefined : theme == "dark" ? "var(--neon-green-color)" : "var(--dark-purple-color)",
+                                }}
+                            >
+                                {/* <Image src={`${route}${icon}`} width={100} height={100} alt="Logo" style={{ width: '1.5rem', height: '1.5rem', objectPosition: 'center', objectFit: 'cover' }} /> */}
+                                <span>{title}</span>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
             <div aria-hidden="true" className="hidden md:block"></div>
