@@ -1,9 +1,18 @@
 .hamburgerButton {
+    position: relative;
     cursor: pointer;
 }
 
 .hamburgerButton > input {
-    display: none;
+    position: absolute;
+    width: 0;
+    height: 0;
+    outline-width: 0;
+}
+
+.hamburgerButton:has(input:focus) {
+    border-radius: 0.25rem;
+    box-shadow: 0 0 0 0.5px var(--foreground);
 }
 
 .hamburgerButton > svg {

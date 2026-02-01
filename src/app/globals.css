@@ -5,12 +5,16 @@
 @import "tailwindcss";
 
 :root {
+
   /* Colores Background */
   --dark-color: #1D1C27;
   --light-color: #F0F0F2;
   --dark-purple-color: #9368F9;
   --light-purple-color: #E769F7;
   --neon-green-color: #40CF89;
+
+
+  --element-outline-color: var(--dark-color);
 
   /* Colores de texto */
   --radius: 0.625rem;
@@ -158,6 +162,8 @@ body {
   }}
 
 .dark {
+  --element-outline-color: var(--light-color);
+
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   /* --card: var(--dark-color);

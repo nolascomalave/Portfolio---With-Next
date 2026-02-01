@@ -39,20 +39,20 @@
       "skills": {
         "title": "Arsenal Tech",
         "description": "I specialize in a variety of languages, frameworks, and tools that allow me to build robust and scalable applications.",
-        "description2": "As a Full Stack developer, I have cultivated a balanced mastery of frontend, backend, and databases, enabling me to handle complete projects from conception to implementation. My stack reflects both production experience and active exploration of modern technologies."
+        "description2": "As a Full-Stack developer, I have cultivated a balanced mastery of frontend, backend, and databases, enabling me to handle complete projects from conception to implementation. My stack reflects both production experience and active exploration of modern technologies."
       },
       "contact": {
         "title": "Contact",
         "description": "I'm currently open to new opportunities and collaborations. Whether you have a product idea, want to discuss a role, or simply want to connect, I'd be happy to hear from you. You can reach me this form or <link>LinkedIn</link> — let's talk about what you're building."
       },
       "experience": {
-        "title": "Experiencia",
+        "title": "Experience",
         "experiences": {
           "0": {
-            "year": "Mar 2022 - Actualidad",
-            "title": "Analista Programador Web Full Stack",
+            "year": "Mar 2022 - Present",
+            "title": "Full-Stack Web Programmer Analyst",
             "company": "OCAM Group",
-            "Description": "Diseño y desarrollo de soluciones empresariales personalizadas para diversos clientes, colaborando en la creación de sistemas integrales que optimizan procesos organizacionales.",
+            "Description": "Design and development of customized business solutions for diverse clients, collaborating in the creation of comprehensive systems that optimize organizational processes.",
             "technologies": {
               "0": {
                 "type": "database",
@@ -69,10 +69,30 @@
             }
           },
           "1": {
-            "year": "Ago 2021 - Ene 2022",
-            "title": "Desarrollador Web",
-            "company": "Alcaldía del Municipio Turístico El Morro \"Lcdo. Diego Bautista Urbaneja\"",
-            "Description": "Contribuí a la modernización digital de procesos mediante el desarrollo de sistemas internos que mejoraron la eficiencia operativa, creando los siguientes sistemas:<list><listitem>Sistema de gestión de horario y asistencia</listitem><listitem>Sistema de gestión de permisos para ocupar de espacios dentro del municipio, vender bebidas alcohólicas y desplegar publicidad dentro del municipio.</listitem></list>",
+            "year": "Aug 2021 - Jan 2022",
+            "title": "Full-Stack Web Developer",
+            "company": "Hi Connection",
+            "Description": "I worked on the development of different projects, as well as the development of a streaming platform and an internal management system, taking full responsibility for the user interface and business logic.",
+            "technologies": {
+              "0": {
+                "type": "database",
+                "items": ["MySQL", "MongoDB"]
+              },
+              "1": {
+                "type": "backend",
+                "items": ["NestJS", "Express"]
+              },
+              "2": {
+                "type": "frontend",
+                "items": ["NextJS", "React", "MaterialUI"]
+              }
+            }
+          },
+          "2": {
+            "year": "Feb 2021 - Feb 2022",
+            "title": "Web Developer",
+            "company": "Mayor's Office of the Tourist Municipality of El Morro \"Lcdo. Diego Bautista Urbaneja\"",
+            "Description": "I contributed to the digital modernization of processes by developing internal systems that improved operational efficiency, creating the following systems:<list><listitem>Time and attendance management system.</listitem><listitem>Permit management system for occupying spaces within the municipality, selling alcoholic beverages, and displaying advertising.</listitem></list>",
             "technologies": {
               "0": {
                 "type": "database",

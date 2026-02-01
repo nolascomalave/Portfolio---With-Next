@@ -46,7 +46,7 @@ function getTechItemByArray(itemType: keyof typeof technologiesItems, items?: st
   if(!items) {
     items = [];
   } else {
-    items = typeof items === "object" ? [] : [items];
+    items = typeof items === "object" ? items : [items];
   }
 
   const techType = technologiesItems[itemType];
@@ -66,8 +66,13 @@ const ItemsTechnologies = [
     ...getTechItemByArray("database", ["MySQL", "MongoDB"]),
     ...getTechItemByArray("backend", ["PHP", "Express"]),
     ...getTechItemByArray("frontend", ["JQuery", "Bootstrap", "React", "MaterialUI"])
+  ],
+  [
+    ...getTechItemByArray("database", ["MySQL", "MongoDB"]),
+    ...getTechItemByArray("backend", ["Nestjs", "Express", "Nextjs"]),
+    ...getTechItemByArray("frontend", ["React", "MaterialUI"])
   ]
-]
+];
 
 export default function TimeLine() {
   const __ = useTranslations("layout.sections_content.experience");
@@ -75,13 +80,13 @@ export default function TimeLine() {
     return (
         <ol className="relative space-y-8 before:absolute before:top-0 before:left-0 md:before:left-1/2 before:h-full before:w-0.5 before:-translate-x-1/2 before:rounded-full before:bg-linear-to-b before:from-dark-purple dark:before:from-neon-green before:to-neon-green dark:before:to-dark-purple">
         {/* {Experience.map(item => (<TimeLineItem key={item.company} {...item} />))} */}
-        {[0,1].map(i => (
+        {[0,1,2].map(i => (
           <TimeLineItem key={i}
             year={__(`experiences.${i}.year`)}
             title={__(`experiences.${i}.title`)}
             company={__(`experiences.${i}.company`)}
             Description={__.rich(`experiences.${i}.Description`, {
-              list: (chunks) => <ul className="list-item">{chunks}</ul>,
+              list: (chunks) => <ul className="list-disc pl-6 mt-2">{chunks}</ul>,
               listitem: (chunks) => <li>{chunks}</li>
             })}
             technologies={ItemsTechnologies[i]}

@@ -37,7 +37,7 @@
       "skills": {
         "title": "Arsenal Tecnológico",
         "description": "Me especializo en una variedad de lenguajes, marcos y herramientas que me permiten crear aplicaciones robustas y escalables.",
-        "description2": "Como desarrollador Full Stack, he cultivado un dominio equilibrado entre frontend, backend y bases de datos, permitiéndome abordar proyectos completos desde la concepción hasta la implementación. Mi stack refleja tanto experiencia en producción como exploración activa de tecnologías modernas."
+        "description2": "Como desarrollador Full-Stack, he cultivado un dominio equilibrado entre frontend, backend y bases de datos, permitiéndome abordar proyectos completos desde la concepción hasta la implementación. Mi stack refleja tanto experiencia en producción como exploración activa de tecnologías modernas."
       },
       "contact": {
         "title": "Contacto",
@@ -48,7 +48,7 @@
         "experiences": {
           "0": {
             "year": "Mar 2022 - Actualidad",
-            "title": "Analista Programador Web Full Stack",
+            "title": "Analista Programador Web Full-Stack",
             "company": "OCAM Group",
             "Description": "Diseño y desarrollo de soluciones empresariales personalizadas para diversos clientes, colaborando en la creación de sistemas integrales que optimizan procesos organizacionales.",
             "technologies": {
@@ -68,9 +68,29 @@
           },
           "1": {
             "year": "Ago 2021 - Ene 2022",
+            "title": "Desarrollador Web Full-Stack",
+            "company": "Hi Connection",
+            "Description": "Trabajé en el desarrollo de diferentes proyectos, así como en el desarrollo de una plataforma de streaming y un sistema de gestión interna, encargándome completamente de la interfaz de usuario y la lógica de negocio.",
+            "technologies": {
+              "0": {
+                "type": "database",
+                "items": ["MySQL", "MongoDB"]
+              },
+              "1": {
+                "type": "backend",
+                "items": ["NestJS", "Express"]
+              },
+              "2": {
+                "type": "frontend",
+                "items": ["NextJS", "React", "MaterialUI"]
+              }
+            }
+          },
+          "2": {
+            "year": "Feb 2021 - Feb 2022",
             "title": "Desarrollador Web",
             "company": "Alcaldía del Municipio Turístico El Morro \"Lcdo. Diego Bautista Urbaneja\"",
-            "Description": "Contribuí a la modernización digital de procesos mediante el desarrollo de sistemas internos que mejoraron la eficiencia operativa, creando los siguientes sistemas:<list><listitem>Sistema de gestión de horario y asistencia</listitem><listitem>Sistema de gestión de permisos para ocupar de espacios dentro del municipio, vender bebidas alcohólicas y desplegar publicidad dentro del municipio.</listitem></list>",
+            "Description": "Contribuí a la modernización digital de procesos mediante el desarrollo de sistemas internos que mejoraron la eficiencia operativa, creando los siguientes sistemas:<list><listitem>Sistema de gestión de horario y asistencia.</listitem><listitem>Sistema de gestión de permisos para ocupar de espacios dentro del municipio, vender bebidas alcohólicas y desplegar publicidad.</listitem></list>",
             "technologies": {
               "0": {
                 "type": "database",

@@ -89,7 +89,7 @@ export const AnimatedThemeToggler = ({
           )}
         </Button>
       </TooltipTrigger>
-      <TooltipContent className="TooltipContent">
+      <TooltipContent className="TooltipContent z-[1000]">
         <p>{__('theme-mode', { theme: __(`theme.${theme}`).toLowerCase() })}</p>
       </TooltipContent>
     </Tooltip>

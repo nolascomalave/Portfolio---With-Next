@@ -3,7 +3,7 @@
 import { useLocale, useTranslations } from 'next-intl';
 import Link from 'next/link';
 // import { usePathname } from 'next/navigation';
-import { useEffect, useRef, useState } from 'react';
+import { MouseEvent, useEffect, useRef, useState } from 'react';
 import LanguageSwitcher from './LanguageSwitcher';
 import Image from 'next/image';
 import { AnimatedThemeToggler } from './ui/animated-theme-toggler';
@@ -12,6 +12,7 @@ import * as motion from "motion/react-client";
 import { AnimatePresence } from 'framer-motion';
 import { useNav } from '@/context/NavContext';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 
 type LinkType = {
     href: string;
@@ -46,6 +47,35 @@ const blurBackdropVariants = {
     }
 };
 
+const handleActionMenu = ({
+    e,
+    sectionID,
+    isOpenMobileMenu,
+    setIsOpenMobileMenu
+}: {
+    e: {preventDefault: () => void};
+    sectionID: string;
+    isOpenMobileMenu: boolean;
+    setIsOpenMobileMenu: (val: boolean) => void
+}) => {
+    e.preventDefault();
+
+    const element = document.getElementById(sectionID);
+
+    if (element) {
+        if(isOpenMobileMenu) {
+            setIsOpenMobileMenu(false);
+        }
+
+        setTimeout(() => element.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',     // o 'center' si quieres centrar la sección
+        }), 0);
+    }
+
+    window.history.replaceState(null, "", `#${sectionID}`);
+}
+
 const renderLinks = ({
     link,
     activeSection,
@@ -68,24 +98,12 @@ const renderLinks = ({
             <Link
                 href={isHomeAnchor ? `#${HomeAnchorID}` : link.href}
                 className={`p-2 ${isActive ? "text-dark-purple dark:text-neon-green font-semibold" : ""}`}
-                onClick={(e) => {
-                    e.preventDefault();
-
-                    const element = document.getElementById(sectionID);
-
-                    if (element) {
-                        if(isOpenMobileMenu) {
-                            setIsOpenMobileMenu(false);
-                        }
-
-                        setTimeout(() => element.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start',     // o 'center' si quieres centrar la sección
-                        }), 0);
-                    }
-
-                    window.history.replaceState(null, "", `#${sectionID}`);
-                }}
+                onClick={(e) => handleActionMenu({
+                    e: e,
+                    sectionID: sectionID,
+                    isOpenMobileMenu: isOpenMobileMenu,
+                    setIsOpenMobileMenu: setIsOpenMobileMenu
+                })}
             >
                 {__(link.label)}
             </Link>
@@ -146,20 +164,35 @@ export default function Navbar() {
             {/* <div className={`backdrop-blur-md absolute z-1 top-0 right-0 ${isOpenMobileMenu ? "w-lvw h-lvh" : "bottom-0 left-0"}`}></div> */}
             <div className='flex p-[0.5rem] max-w-7xl w-full m-auto justify-between z-2'>
                 <div className="flex items-center shrink-0">
-                    <Link href={`/${locale}/`}>
-                        <Image
-                            src="/favicon.svg"
-                            width={0}
-                            height={0}
-                            alt="Logo"
-                            style={{
-                                width: '2rem',
-                                height: '2rem',
-                                objectPosition: 'center',
-                                objectFit: 'cover',
-                            }}
-                        />
-                    </Link>
+                    <Tooltip>
+                        <TooltipTrigger asChild>
+                            <Link
+                                href={`#${HomeAnchorID}`}
+                                onClick={(e) => handleActionMenu({
+                                    e: e,
+                                    sectionID: HomeAnchorID,
+                                    isOpenMobileMenu: isOpenMobileMenu,
+                                    setIsOpenMobileMenu: setIsOpenMobileMenu
+                                })}
+                            >
+                                <Image
+                                    src="/favicon.svg"
+                                    width={0}
+                                    height={0}
+                                    alt="Logo"
+                                    style={{
+                                        width: '2rem',
+                                        height: '2rem',
+                                        objectPosition: 'center',
+                                        objectFit: 'cover',
+                                    }}
+                                />
+                            </Link>
+                        </TooltipTrigger>
+                        <TooltipContent className="TooltipContent z-[1000]">
+                            {__("home")}
+                        </TooltipContent>
+                    </Tooltip>
                 </div>
 
                 <AnimatePresence>
