@@ -5,6 +5,7 @@ import TimeLine from "@/components/TimeLine";
 import { useInView } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { useNav } from "@/context/NavContext";
+import { section as Section } from "motion/react-client";
 
 export default function Experience({ id }: { id: string; }) {
     const ref = useRef<HTMLElement>(null);
@@ -22,9 +23,22 @@ export default function Experience({ id }: { id: string; }) {
     }, [isInView]);
 
     return (
-        <section ref={ref} id={id} className="m-auto px-4 pb-8 pt-22 max-w-7xl">
-            <h2 className="text-4xl mb-8 uppercase">{__("title")}</h2>
-            <TimeLine/>
-        </section>
+      <Section
+        ref={ref} id={id}
+        className="m-auto px-4 pb-8 pt-22 max-w-7xl"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{
+            duration: 0.5,
+            ease: "easeOut"
+        }}
+        viewport={{
+            once: true,           // ← muy importante: anima solo la primera vez
+            amount: 0.3           // 30% del elemento debe estar visible para disparar
+        }}
+      >
+          <h2 className="text-4xl mb-8 uppercase">{__("title")}</h2>
+          <TimeLine/>
+      </Section>
     );
 }

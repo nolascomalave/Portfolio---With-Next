@@ -7,6 +7,20 @@ import { Card, CardHeader, CardTitle } from "../ui/card";
 import { useEffect, useRef } from "react";
 import { useInView } from "framer-motion";
 import { useNav } from "@/context/NavContext";
+import { article as Article } from "motion/react-client";
+
+export const showInViewMotionProps = {
+    initial: { opacity: 0, y: 50 },
+    whileInView: { opacity: 1, y: 0 },
+    transition: {
+        duration: 0.5,
+        ease: "easeOut"
+    },
+    viewport: {
+        once: true,           // ← muy importante: anima solo la primera vez
+        amount: 0.3           // 30% del elemento debe estar visible para disparar
+    }
+};
 
 export default function About({ id }: { id: string; }) {
     const __ = useTranslations('layout.sections_content');
@@ -24,7 +38,10 @@ export default function About({ id }: { id: string; }) {
     }, [isInView]);
 
     return (<section ref={ref} id={id} className="m-auto px-4 pb-8 pt-22 max-w-7xl flex flex-col lg:flex-row gap-10 items-start">
-        <article className="w-full">
+        <Article
+            {...showInViewMotionProps}
+            className="w-full"
+        >
             <h2 className="text-4xl uppercase mb-8">{__("about.title")}</h2>
 
             <p className="text-1xl text-gray-500 dark:text-gray-300 indent-6">{__("about.description.p1")}</p>
@@ -32,8 +49,12 @@ export default function About({ id }: { id: string; }) {
             <p className="text-1xl text-gray-500 dark:text-gray-300 indent-6">{__("about.description.p2")}</p>
             <br/>
             <p className="text-1xl text-gray-500 dark:text-gray-300 indent-6">{__("about.description.p3")}</p>
-        </article>
-        <article className="w-full">
+        </Article>
+
+        <Article
+            {...showInViewMotionProps}
+            className="w-full"
+        >
             <Card className="relative w-full overflow-hidden">
                 <ShineBorder shineColor={["#9368F9", "#E769F7", "#40CF89"]} />
                 <CardHeader>
@@ -66,6 +87,6 @@ export default function About({ id }: { id: string; }) {
                     </div>
                 </div> */}
             </Card>
-        </article>
+        </Article>
     </section>)
 }

@@ -11,7 +11,7 @@ import { Email, Github, LinkedIn } from "@/lib/links";
 import { useInView } from "framer-motion";
 import { useNav } from "@/context/NavContext";
 import { useEffect, useRef } from "react";
-import * as motion from "motion/react-client";
+import { div as Div, p as P, h3 as H3 } from "motion/react-client";
 
 export const contactLinks: {label: string, Icon: JSX.Element, href: string, target?: string}[] = [
     {label: "GitHub", Icon: <GithubIcon />, href: Github, target: "_blank"},
@@ -54,7 +54,7 @@ export default function Hero({ id }: { id: string; }) {
 
     return (
         <section ref={ref} id={id} className="m-auto px-4 pb-8 pt-22 max-w-7xl">
-            <motion.div {...showInViewMotionProps} >
+            <Div {...showInViewMotionProps} >
                 <Image
                     width={100}
                     height={100}
@@ -76,9 +76,9 @@ export default function Hero({ id }: { id: string; }) {
                         </a>
                     ))}
                 </div>
-            </motion.div>
+            </Div>
 
-            <motion.div
+            <Div
                 {...showInViewMotionProps}
                 transition={{
                     ...showInViewMotionProps,
@@ -90,9 +90,9 @@ export default function Hero({ id }: { id: string; }) {
                 <h1 className="text-5xl font-bold text-center">
                     <TypingAnimation duration={greetingTypingDuration} delay={1000}>{greetingText}</TypingAnimation>
                 </h1>
-            </motion.div>
+            </Div>
 
-            <motion.h3
+            <H3
                 {...showInViewMotionProps}
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -103,9 +103,9 @@ export default function Hero({ id }: { id: string; }) {
                 className="text-3xl m-auto flex items-center gap-2 justify-center dark:text-neon-green text-dark-purple"
             >
                 {`${(isLocaleES ? __("role").concat(" ") : "")}${__("subrole")}${(!isLocaleES ? (" ").concat(__("role")) : "")}`}
-            </motion.h3>
+            </H3>
 
-            <motion.p
+            <P
                 {...showInViewMotionProps}
                 initial={{ opacity: 0, scale: 0.7 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -117,7 +117,7 @@ export default function Hero({ id }: { id: string; }) {
                 className={`max-w-3xl text-2xl m-auto mt-8 mb-8 text-gray-500 dark:text-gray-300 indent-6 text-blur-md`}
             >
                 {__("description")}
-            </motion.p>
+            </P>
             {/* <h3 className="text-3xl m-auto flex items-center gap-2 justify-center dark:text-neon-green text-dark-purple">
                 <BlurFade delay={((greetingDuration / 1000))}>
                     {`${(isLocaleES ? __("role").concat(" ") : "")}${__("subrole")}${(!isLocaleES ? (" ").concat(__("role")) : "")}`}

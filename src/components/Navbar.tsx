@@ -3,12 +3,12 @@
 import { useLocale, useTranslations } from 'next-intl';
 import Link from 'next/link';
 // import { usePathname } from 'next/navigation';
-import { MouseEvent, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import LanguageSwitcher from './LanguageSwitcher';
 import Image from 'next/image';
 import { AnimatedThemeToggler } from './ui/animated-theme-toggler';
 import MobileNavButton from './MobileNavButton';
-import * as motion from "motion/react-client";
+import { li as Li, div as Div, ul as Ul, nav as Nav } from "motion/react-client";
 import { AnimatePresence } from 'framer-motion';
 import { useNav } from '@/context/NavContext';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
@@ -94,7 +94,7 @@ const renderLinks = ({
         isActive = activeSection === sectionID;
 
     return (
-        <motion.li key={link.href} className="relative pb-1">
+        <Li key={link.href} className="relative pb-1">
             <Link
                 href={isHomeAnchor ? `#${HomeAnchorID}` : link.href}
                 className={`p-2 ${isActive ? "text-dark-purple dark:text-neon-green font-semibold" : ""}`}
@@ -108,14 +108,14 @@ const renderLinks = ({
                 {__(link.label)}
             </Link>
             {isActive && (
-                <motion.div
+                <Div
                     layoutId="activeIndicator" // ¡Magia! Comparte la animación entre items
                     className="absolute left-0 right-0 h-0.5 bg-dark-purple dark:bg-neon-green rounded-full"
                     initial={false}
                     transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                 />
             )}
-        </motion.li>
+        </Li>
     )
 }
 
@@ -151,9 +151,18 @@ export default function Navbar() {
 
   return (
     <>
-        <nav ref={navRef} className="sticky top-0 left-0 right-0 z-20 transition-colors flex gap-[0.125rem] text-inherit z-[1000]">
+        <Nav
+            initial={{ y: -100 }}
+            animate={{ y: 0 }}
+            transition={{
+                duration: 0.6,
+                ease: "easeOut"
+            }}
+            ref={navRef}
+            className="sticky top-0 left-0 right-0 z-20 transition-colors flex gap-[0.125rem] text-inherit z-[1000]"
+        >
             <AnimatePresence>
-                <motion.div
+                <Div
                     className="backdrop-blur-md absolute z-1 top-0 right-0 bottom-0 left-0"
                     animate={isOpenMobileMenu ? "open" : "closed"}
                     initial="closed"
@@ -196,7 +205,7 @@ export default function Navbar() {
                 </div>
 
                 <AnimatePresence>
-                    <motion.ul
+                    <Ul
                         animate={isOpenMobileMenu ? "open" : "closed"}
                         initial="closed"
                         transition={{ duration: 0.4, ease: 'easeInOut' }}
@@ -214,7 +223,7 @@ export default function Navbar() {
                             isOpenMobileMenu,
                             setIsOpenMobileMenu
                         }))}
-                    </motion.ul>
+                    </Ul>
                 </AnimatePresence>
 
                 <ul
@@ -235,7 +244,7 @@ export default function Navbar() {
                     <MobileNavButton setIsOpen={setIsOpenMobileMenu} isOpen={isOpenMobileMenu} />
                 </div>
             </div>
-        </nav>
+        </Nav>
     </>
   );
 }

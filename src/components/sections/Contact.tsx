@@ -6,6 +6,8 @@ import { LinkedIn } from "@/lib/links";
 import { useEffect, useRef } from "react";
 import { useInView } from "framer-motion";
 import { useNav } from "@/context/NavContext";
+import { div as Div, article as Article } from "motion/react-client";
+import { showInViewMotionProps } from "@/components/sections/About";
 
 export default function Contact({ id }: { id: string; }) {
     const __ = useTranslations('layout.sections_content.contact');
@@ -24,9 +26,17 @@ export default function Contact({ id }: { id: string; }) {
 
     return (
         <section ref={ref} id={id} className="m-auto px-4 pb-8 pt-22 max-w-7xl flex flex-col-reverse items-center lg:items-start lg:flex-row gap-16">
-            <ContactForm />
+            <Div
+                {...showInViewMotionProps}
+                className="shrink-0 w-full sm:max-w-lg"
+            >
+                <ContactForm />
+            </Div>
 
-            <article className="w-full">
+            <Article
+                {...showInViewMotionProps}
+                className="w-full"
+            >
                 <h2 className="text-4xl uppercase mb-8">{__("title")}</h2>
 
                 <p className="text-1xl text-gray-500 dark:text-gray-300 indent-6">
@@ -34,7 +44,7 @@ export default function Contact({ id }: { id: string; }) {
                         link: (chunks) => <a href={LinkedIn} className='text-dark-purple dark:text-neon-green italic hover:underline decoration-solid'>{chunks}</a>
                     })}
                 </p>
-            </article>
+            </Article>
         </section>
     );
 }
