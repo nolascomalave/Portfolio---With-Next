@@ -22,8 +22,8 @@ export default function Experience({ id }: { id: string; }) {
     }, [isInView]);
 
     return (
-        <section ref={ref} id={id} className="m-auto py-8 mt-14 px-4 max-w-7xl">
-            <h2 className="text-2xl mb-8 uppercase text-center">{__("title")}</h2>
+        <section ref={ref} id={id} className="m-auto px-4 pb-8 pt-22 max-w-7xl">
+            <h2 className="text-4xl mb-8 uppercase">{__("title")}</h2>
             <TimeLine/>
         </section>
     );

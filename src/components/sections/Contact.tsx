@@ -23,11 +23,11 @@ export default function Contact({ id }: { id: string; }) {
     }, [isInView]);
 
     return (
-        <section ref={ref} id={id} className="m-auto py-8 mt-14 px-4 max-w-7xl flex flex-col-reverse items-center lg:items-start lg:flex-row gap-16">
+        <section ref={ref} id={id} className="m-auto px-4 pb-8 pt-22 max-w-7xl flex flex-col-reverse items-center lg:items-start lg:flex-row gap-16">
             <ContactForm />
 
             <article className="w-full">
-                <h1 className="text-2xl mb-8 uppercase">{__("title")}</h1>
+                <h2 className="text-4xl uppercase mb-8">{__("title")}</h2>
 
                 <p className="text-1xl text-gray-500 dark:text-gray-300 indent-6">
                     {__.rich("description", {

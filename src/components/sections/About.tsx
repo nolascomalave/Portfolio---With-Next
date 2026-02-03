@@ -23,9 +23,9 @@ export default function About({ id }: { id: string; }) {
       }
     }, [isInView]);
 
-    return (<section ref={ref} id={id} className="m-auto py-8 mt-14 px-4 max-w-7xl flex flex-col lg:flex-row gap-10 items-start">
+    return (<section ref={ref} id={id} className="m-auto px-4 pb-8 pt-22 max-w-7xl flex flex-col lg:flex-row gap-10 items-start">
         <article className="w-full">
-            <h1 className="text-5xl mb-8">{__("about.title")}</h1>
+            <h2 className="text-4xl uppercase mb-8">{__("about.title")}</h2>
 
             <p className="text-1xl text-gray-500 dark:text-gray-300 indent-6">{__("about.description.p1")}</p>
             <br/>
@@ -37,10 +37,10 @@ export default function About({ id }: { id: string; }) {
             <Card className="relative w-full overflow-hidden">
                 <ShineBorder shineColor={["#9368F9", "#E769F7", "#40CF89"]} />
                 <CardHeader>
-                    <CardTitle className="text-5xl mb-2">
+                    <CardTitle className="text-4xl uppercase mb-2">
                         {__("skills.title")}
                     </CardTitle>
-                    {/* <h1 className="text-5xl mb-8">{__("skills.title")}</h1> */}
+                    {/* <h2 className="text-4xl uppercase mb-8">{__("skills.title")}</h2> */}
                 </CardHeader>
                 <div className="pl-6 pb-6 pr-6 sm:pr-0 flex flex-col sm:flex-row gap-4 justify-between">
                     <div className="grow text-gray-500 dark:text-gray-300 indent-6">
