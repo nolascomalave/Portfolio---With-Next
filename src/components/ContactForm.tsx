@@ -39,8 +39,8 @@ export default function ContactForm() {
     })
 
     return (
-        <Card className="relative bg-transparent">
-            <div className="absolute top-0 right-0 bottom-0 left-0 rounded-xl backdrop-blur-xs -z-[1]"></div>
+        <Card className="relative bg-background dark:bg-[rgba(13,_12,_15)]">
+            {/* <div className="absolute top-0 right-0 bottom-0 left-0 rounded-xl backdrop-blur-xs -z-[1]"></div> */}
             <BorderBeam duration={4} size={300} reverse style={{
                 backgroundImage: "linear-gradient(to right, transparent, var(--dark-purple-color), var(--light-purple-color), var(--neon-green-color))"
             }} />
@@ -128,7 +128,7 @@ export default function ContactForm() {
                     <Button type="button" className="cursor-pointer uppercase" variant="outline" onClick={() => form.reset()}>
                         Reset
                     </Button>
-                    <Button type="submit" className="cursor-pointer uppercase w-full bg-neon-green hover:bg-emerald-600" form="contact-form">
+                    <Button type="submit" className="cursor-pointer uppercase w-full dark:bg-neon-green dark:hover:bg-emerald-600 dark:focus:bg-emerald-600" form="contact-form">
                         Submit
                     </Button>
                 </Field>

@@ -55,7 +55,7 @@ export default function About({ id }: { id: string; }) {
             {...showInViewMotionProps}
             className="w-full"
         >
-            <Card className="relative w-full overflow-hidden">
+            <Card className="relative w-full overflow-hidden bg-background dark:bg-[rgba(13,_12,_15)]">
                 <ShineBorder shineColor={["#9368F9", "#E769F7", "#40CF89"]} />
                 <CardHeader>
                     <CardTitle className="text-4xl uppercase mb-2">
