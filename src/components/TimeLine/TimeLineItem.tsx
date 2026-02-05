@@ -1,8 +1,6 @@
 "use client";
 
-import { Badge } from "@/components/ui/badge";
 import { ExperienceItemData } from "./TimeLine";
-import Image from "next/image";
 import { useTheme } from "next-themes";
 import React, { useEffect, useState } from "react";
 import { li as Li } from "motion/react-client";

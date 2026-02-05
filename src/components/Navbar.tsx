@@ -132,7 +132,6 @@ export default function Navbar() {
   const __ = useTranslations('layout.sections-list');
   const navRef = useRef<HTMLElement>(null);
   const { activeSection } = useNav();
-  const locale = useLocale();
   const [mounted, setMounted] = useState(false);
   const [isOpenMobileMenu, setIsOpenMobileMenu] = useState(false);
   const isMobileMenu = useMediaQuery("(min-width: 40rem)");

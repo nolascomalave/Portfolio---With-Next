@@ -8,6 +8,7 @@ import { Inter } from 'next/font/google';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import Footer from '@/components/Footer';
 import { NavProvider } from '@/context/NavContext';
+import { Toaster } from '@/components/Toaster';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -66,7 +67,7 @@ export default async function LocaleLayout({
           <ThemeProvider
             attribute="class"
             defaultTheme="dark"          // empieza en dark como tu ejemplo
-            enableSystem={false}                 // respeta preferencia del sistema
+            enableSystem={true}                 // respeta preferencia del sistema
             disableTransitionOnChange    // evita animación rara al cambiar
           >
             <TooltipProvider>
@@ -77,6 +78,7 @@ export default async function LocaleLayout({
                   {children}
                 </main>
                 {/* Footer aquí si lo quieres global */}
+                <Toaster />
                 <Footer/>
               </NavProvider>
             </TooltipProvider>

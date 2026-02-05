@@ -43,7 +43,21 @@
       },
       "contact": {
         "title": "Contact",
-        "description": "I'm currently open to new opportunities and collaborations. Whether you have a product idea, want to discuss a role, or simply want to connect, I'd be happy to hear from you. You can reach me this form or <link>LinkedIn</link> — let's talk about what you're building."
+        "description": "I'm currently open to new opportunities and collaborations. Whether you have a product idea, want to discuss a role, or simply want to connect, I'd be happy to hear from you. You can reach me this form or <link>LinkedIn</link> — let's talk about what you're building.",
+        "form": {
+          "full-name": "Full Name",
+          "email": "Email",
+          "message": "Message",
+          "characters": "characters",
+          "reset": "Reset",
+          "send": "Send",
+          "sending": "Sending...",
+          "actions": {
+            "sending": "Sending email...",
+            "sent": "Contact email sent!",
+            "unexpected-error": "An unexpected error occurred while sending the email."
+          }
+        }
       },
       "experience": {
         "title": "Experience",

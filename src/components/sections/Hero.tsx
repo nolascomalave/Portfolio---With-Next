@@ -4,7 +4,6 @@ import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import { JSX } from "@emotion/react/jsx-runtime";
 import { TypingAnimation } from "@/components/ui/typing-animation";
-// import { BlurFade } from "@/components/ui/blur-fade"
 import { GithubIcon, LinkedinIcon, MailIcon } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Email, Github, LinkedIn } from "@/lib/links";
@@ -118,14 +117,6 @@ export default function Hero({ id }: { id: string; }) {
             >
                 {__("description")}
             </P>
-            {/* <h3 className="text-3xl m-auto flex items-center gap-2 justify-center dark:text-neon-green text-dark-purple">
-                <BlurFade delay={((greetingDuration / 1000))}>
-                    {`${(isLocaleES ? __("role").concat(" ") : "")}${__("subrole")}${(!isLocaleES ? (" ").concat(__("role")) : "")}`}
-                </BlurFade>
-            </h3>
-            <BlurFade delay={((greetingDuration / 1000))}>
-                <p className={`max-w-3xl text-2xl m-auto mt-8 mb-8 text-gray-500 dark:text-gray-300 indent-6 text-blur-md`}>{__("description")}</p>
-            </BlurFade> */}
         </section>
     );
 }

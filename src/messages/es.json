@@ -41,7 +41,21 @@
       },
       "contact": {
         "title": "Contacto",
-        "description": "Estoy abierto a nuevas oportunidades y colaboraciones. Si tienes una idea de producto, quieres hablar sobre un puesto o simplemente quieres conectar, me encantaría saber de ti. Puedes contactarme a través de este formulario o <link>LinkedIn</link> - hablemos de lo que estás desarrollando."
+        "description": "Estoy abierto a nuevas oportunidades y colaboraciones. Si tienes una idea de producto, quieres hablar sobre un puesto o simplemente quieres conectar, me encantaría saber de ti. Puedes contactarme a través de este formulario o <link>LinkedIn</link> - hablemos de lo que estás desarrollando.",
+        "form": {
+          "full-name": "Nombre y Apellido",
+          "email": "Coreo Electrónico",
+          "message": "Mensaje",
+          "characters": "caracteres",
+          "reset": "Limpiar",
+          "send": "Enviar",
+          "sending": "Enviando...",
+          "actions": {
+            "sending": "Enviando correo...",
+            "sent": "¡Correo de contacto enviado!",
+            "unexpected-error": "Ha ocurrido un error inesperado al enviar el correo electrónico."
+          }
+        }
       },
       "experience": {
         "title": "Experiencia",
