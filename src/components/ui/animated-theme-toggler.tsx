@@ -8,23 +8,26 @@ import { Button } from '@/components/ui/button';
 
 import { useTheme } from "next-themes"
 import { useTranslations } from "next-intl";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 interface AnimatedThemeTogglerProps extends React.ComponentPropsWithoutRef<"button"> {
   duration?: number
 }
 
 export const AnimatedThemeToggler = ({
-  className,
   duration = 400
 }: AnimatedThemeTogglerProps) => {
-  const { theme, setTheme } = useTheme();
-  const [isDark, setIsDark] = useState(false);
-  const buttonRef = useRef<HTMLButtonElement>(null)
-  const __ = useTranslations("common");
+  const { theme, setTheme } = useTheme(),
+    buttonRef = useRef<HTMLButtonElement>(null),
+    __ = useTranslations("common"),
+    isMobile = useMediaQuery("(max-width: 800px)"),
+    [isErrorInAnimation, setIsErrorInAnimation] = useState(false);
 
   useEffect(() => {
     const updateTheme = () => {
-      setIsDark(document.documentElement.classList.contains("dark"))
+      if(document.documentElement.classList.contains("dark")) {
+        setTheme("dark");
+      }
     }
 
     updateTheme()
@@ -39,39 +42,44 @@ export const AnimatedThemeToggler = ({
   }, [])
 
   const toggleTheme = useCallback(async () => {
-    if (!buttonRef.current) return
+    if (!buttonRef.current) return;
 
-    await document.startViewTransition(() => {
-      flushSync(() => {
-        const newTheme = !isDark
-        setIsDark(newTheme)
-        setTheme(theme === 'dark' ? 'light' : 'dark');
-      })
-    }).ready
+    const newTheme = theme === 'dark' ? 'light' : 'dark';
 
-    const { top, left, width, height } =
-      buttonRef.current.getBoundingClientRect()
-    const x = left + width / 2
-    const y = top + height / 2
-    const maxRadius = Math.hypot(
-      Math.max(left, window.innerWidth - left),
-      Math.max(top, window.innerHeight - top)
-    )
+    try {
+      await document.startViewTransition(() => flushSync(() => setTheme(newTheme))).ready
 
-    document.documentElement.animate(
-      {
-        clipPath: [
-          `circle(0px at ${x}px ${y}px)`,
-          `circle(${maxRadius}px at ${x}px ${y}px)`,
-        ],
-      },
-      {
-        duration,
-        easing: "ease-in-out",
-        pseudoElement: "::view-transition-new(root)",
+      const { top, left, width, height } =
+        buttonRef.current.getBoundingClientRect()
+      const x = left + width / 2
+      const y = top + height / 2
+      const maxRadius = Math.hypot(
+        Math.max(left, window.innerWidth - left),
+        Math.max(top, window.innerHeight - top)
+      )
+
+      document.documentElement.animate(
+        {
+          clipPath: [
+            `circle(0px at ${x}px ${y}px)`,
+            `circle(${maxRadius}px at ${x}px ${y}px)`,
+          ],
+        },
+        {
+          duration,
+          easing: "ease-in-out",
+          pseudoElement: "::view-transition-new(root)",
+        }
+      )
+    } catch(err: any) {
+      if (err.name === 'InvalidStateError' || err.message?.includes('aborted')) {
+        setIsErrorInAnimation(true);
+        setTheme(newTheme);
+      } else {
+        console.error('Error during theme transition:', err);
       }
-    )
-  }, [isDark, duration])
+    }
+  }, [theme, duration])
 
   return (
     <Tooltip>
@@ -80,7 +88,13 @@ export const AnimatedThemeToggler = ({
           size="icon"
           ref={buttonRef}
           className="rounded-full bg-transparent cursor-pointer hover:bg-transparent text-inherit [&_svg]:size-6"
-          onClick={toggleTheme}
+          onClick={(e) => {
+            if (isMobile || isErrorInAnimation) { // skip en mobile
+              return setTheme(theme === 'dark' ? 'light' : 'dark');
+            }
+
+            toggleTheme();
+          }}
         >
           {theme === 'dark' ? (
             <Sun />
@@ -95,13 +109,3 @@ export const AnimatedThemeToggler = ({
     </Tooltip>
   )
 }
-
-{/* <button
-      ref={buttonRef}
-      onClick={toggleTheme}
-      className={cn(className)}
-      {...props}
-    >
-      {isDark ? <Sun /> : <Moon />}
-      <span className="sr-only">Toggle theme</span>
-    </button> */}

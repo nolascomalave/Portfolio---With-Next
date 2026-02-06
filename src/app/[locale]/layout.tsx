@@ -18,16 +18,13 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: 'Nolasco Malavé - Portfolio',
+  title: 'Nolasco Malavé / Desarrollador Full-Stack',
+  // description: 'Desarrollador especializado en Next.js, React, TypeScript. Portafolio con proyectos reales y experiencia en [tu nicho].',
   icons: {
     // SVG para navegadores modernos
-    icon: { url: '/favicon.png', type: 'image/png' },
-    // ICO para compatibilidad (mantén este archivo)
+    icon: { url: '/favicon.svg', type: 'image/svg' },
     shortcut: '/favicon.ico',
-    apple: '/apple-touch-icon.png', // Opcional para iOS
-    /* apple: [
-      { url: '/apple-icon.jpg', type: 'image/jpg' },
-    ], */
+    apple: '/favicon.png'
   },
 };
 
@@ -51,7 +48,7 @@ export default async function LocaleLayout({
     <html lang={locale} suppressHydrationWarning className={`${inter.className} font-sans`}>
       <body
         // className='text-light-text dark:text-dark-text min-h-screen flex flex-col bg-[radial-gradient(circle_at_top_left,_rgba(64,207,137,0.35),_var(--light-color)_70%)] dark:bg-[radial-gradient(125%_125%_at_50%_100%,_#000000_40%,_#350136_100%)]'
-        className='text-light-text dark:text-dark-text min-h-screen flex flex-col light:bg-light bg-[radial-gradient(circle,_rgba(0,0,0,0.2)_1.5px,_transparent_1.5px)] dark:bg-[radial-gradient(circle,_rgba(255,255,255,0.05)_1.5px,_transparent_1.5px)]'
+        className='text-light-text dark:text-dark-text min-h-screen flex flex-col light:bg-light bg-[radial-gradient(circle,_#0001_1.5px,_transparent_1.5px)] dark:bg-[radial-gradient(circle,_rgba(255,255,255,0.05)_1.5px,_transparent_1.5px)]'
         style={{
           // backgroundImage: "radial-gradient(125% 125% at 50% 100%, #000000 40%, #350136 100%)",
           /* backgroundRepeat: "no-repeat",

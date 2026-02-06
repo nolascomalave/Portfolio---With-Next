@@ -238,7 +238,7 @@ export default function Navbar() {
                 </ul>
 
                 <div className='flex items-center gap-2 shrink-0'>
-                    <AnimatedThemeToggler className='cursor-pointer' />
+                    <AnimatedThemeToggler />
                     <LanguageSwitcher/>
                     <MobileNavButton setIsOpen={setIsOpenMobileMenu} isOpen={isOpenMobileMenu} />
                 </div>
